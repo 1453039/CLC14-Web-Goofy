@@ -1,0 +1,29 @@
+body {
+  	background: #f1f4f7;
+  	padding-top: 50px;
+  	color: #5f6468;
+    padding-bottom: 50px;
+}
+body a{
+	color: #5f6468;
+}
+.breadcrumb {
+	border-radius: 0;
+	padding: 10px 15px;
+	background: #e9ecf2;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+	margin: 0 ;
+}
+
+h1.page-header {
+	margin-top: 30px;
+	border-bottom: 0;
+}
+
+.breadcrumb .glyph {
+	height: 14px;
+	width: 14px;
+	margin: -2px 0 0 0;
+	stroke-width: 4px;
+	color: #90C5A9;
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE <html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3/stylesheets/3/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0//stylesheets/font-awesome.min.css">
+
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/booktype.css" rel="stylesheet">
+    <link href="/stylesheets/member.css" rel="stylesheet">
+    <link href="/stylesheets/sidebar.css" rel="stylesheet">
+    <link href="/stylesheets/breadcrumb.css" rel="stylesheet">
+    <link href="/stylesheets/paging.css" rel="stylesheet">
+    <link href="/stylesheets/searchbar.css" rel="stylesheet">
+    <script src="/javascripts/lumino.glyphs.js"></script>
+
+    <!--==================================================-->
+    <script src="/javascripts/pagination.js"></script>
+    <script src="/javascripts/goback.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div id="wrapper" class="container-fluid">
+        <div class="row">
+            <% include ./partials/sidebar.ejs %>
+        </div>
+        <div id="container">
+            <div class="content col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2">
+                <div class="row">
+                    <ol class="breadcrumb">
+                        <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+                        <li class="active">Thành viên</li>
+                    </ol>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Thành viên</h1>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table" id="statistic-table">
+                        <tbody>
+                            <tr>
+                                <td>Tổng số thành viên: </td>
+                                <td>
+                                    <div id="totalmember">
+                                        <%= length%>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Số thành viên hoạt động: </td>
+                                <td>
+                                    <div id="activemember">
+                                        0
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Số thành viên bị khóa tạm thời: </td>
+                                <td>
+                                    <div id="lockedmember">
+                                        0
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <hr style="height: 6px; background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;border: 0;">
+                <form>
+                    <input type="text" name="search" placeholder="Tìm.." class="searchbar">
+                </form>
+                <hr style="height: 6px; background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;border: 0;">
+                <div class="table-responsive">
+
+                    <table class="table panel" id="member-table" align="center">
+                        <thead>
+                            <tr>
+                                <th>.</th>
+                                <th>Account</th>
+                                <!--th>Ngày đăng ký</th-->
+                                <th>Tình trạng</th>
+                                <th>Mở rộng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% member.forEach(function(index){%>
+                                <tr>
+                                    <td><img class="memberavatar" src="/images/admin_icon.jpg"></td>
+                                    <td>
+                                        <div class="account-name">
+                                            <%= index.name %>
+                                        </div>
+                                    </td>
+                                    <!--td>
+                                    <div class="reg-date">
+                                        03/30/2017
+                                    </div>
+                                </td-->
+                                    <td>
+                                        <div class="memberstatus">
+                                            <!--i class="fa fa-check-circle fa-lg"<% }
+                                          else{ %> class="fa fa-ban fa-lg" <% } %> aria-hidden="true"></i-->
+                                            <!--i class="fa fa-check-circle fa-lg" aria-hidden="true"></i-->
+                                            <strong><%= index.status%></strong>
+                                        </div>
+                                    </td>
+                                    <td><a href="chitietthanhvien.htm" class="memberdetail"><i class="fa fa-arrow-right fa-lg" aria-hidden="true"></i></a></td>
+                                </tr>
+                                <% }); %>
+                        </tbody>
+                    </table>
+                    <!--div id="pagination">
+                        </div-->
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

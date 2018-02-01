@@ -1,0 +1,158 @@
+<!DOCTYPE <html>
+<html>
+
+<head>
+  <title>
+      <%= title %>
+  </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3/stylesheets/3/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/booktype.css" rel="stylesheet">
+    <link href="/stylesheets/orderdetail.css" rel="stylesheet">
+    <link href="/stylesheets/sidebar.css" rel="stylesheet">
+    <link href="/stylesheets/breadcrumb.css" rel="stylesheet">
+    <link href="/stylesheets/paging.css" rel="stylesheet">
+    <script src="/javascripts/lumino.glyphs.js"></script>
+    <!--==================================================-->
+    <script src="/javascripts/pagination.js"></script>
+    <script src="/javascripts/goback.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div id="wrapper" class="container-fluid">
+        <div class="row">
+            <% include ./partials/sidebar.ejs %>
+        </div>
+        <div id="container">
+            <div class="content col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2">
+                <div class="row">
+                    <ol class="breadcrumb">
+                        <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+                        <li><a href="/order">Đơn hàng</a></li>
+                        <li class="active">Chi tiết đơn hàng</li>
+                    </ol>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Chi tiết đơn hàng</h1>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table" id="statistic-table">
+                        <tbody>
+                            <tr>
+                                <td>Mã đơn hàng: </td>
+                                <td>
+                                    <div id="orderid">
+                                        1
+                                    </div>
+                                </td>
+                                <td>
+                                    Ngày đặt:
+                                </td>
+                                <td>01/17/2017</td>
+                            </tr>
+                            <tr>
+                                <td>Mã khác hàng: </td>
+                                <td>
+                                    <div id="customerid">
+                                        000001
+                                    </div>
+                                </td>
+                                <td>Tên khác hàng: </td>
+                                <td>
+                                    <div id="customername">
+                                        Hang
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Tổng số sản phẩm: </td>
+                                <td>
+                                    <div id="totalproduct">
+                                        4
+                                    </div>
+                                </td>
+                                <td>Tổng tiền: </td>
+                                <td>
+                                    <div id="totalprice">
+                                        400000 VND
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                    <div id="orderstatus" align="center">
+                        <label>TÌnh trạng:</label>
+                        <select class="form-control" id="status" style="display: inline-block; width: 150px;">
+                              <option>Đã giao</option>
+                              <option>Đang giao</option>
+                              <option>Không nhận</option>
+                              <option>Chưa xử lý</option>
+                            </select>
+                    </div>
+                </div>
+                <hr style="height: 6px; background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;border: 0;">
+                <div class="table-responsive">
+
+                    <table class="table panel" id="product-table" align="center">
+                        <thead>
+                            <tr>
+                                <th>Mã sách</th>
+                                <th>Tên sách</th>
+                                <th>Giá</th>
+                                <th>Số lượng</th>
+                                <th>Thành tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Cô gái văn chương 1</td>
+                                <td>10000</td>
+                                <td>1</td>
+                                <td>100000 VND</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Nhân hình quán</td>
+                                <td>10000</td>
+                                <td>1</td>
+                                <td>100000 VND</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Những ngôi nhà ma ám</td>
+                                <td>10000</td>
+                                <td>1</td>
+                                <td>100000 VND</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Nhân chứng biến mất</td>
+                                <td>10000</td>
+                                <td>1</td>
+                                <td>100000 VND</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!--div id="pagination">
+                        </div-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

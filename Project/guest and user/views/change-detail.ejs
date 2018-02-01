@@ -1,0 +1,219 @@
+<!DOCTYPE <html>
+<html>
+
+<head>
+    <title>G4-Goofy</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="/images/favicon.ico" rel="shortcut icon">
+
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/stylesheets/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/stylesheets/style_thong_tin_tai_khoan.css" rel="stylesheet" media="screen">
+    <link href="/stylesheets/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js "></script>
+    <script src="/javascripts/bootstrap.min.js "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js "></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <% include ./partials/header-other.ejs %>
+        </header>
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="index.htm">Trang chủ</a> <span class="divider"></span></li>
+                <li class="active">Thông tin tài khoản</li>
+            </ul>
+            <div id="subcategory" class="col-sm-3">
+                <h4> TÀI KHOẢN CỦA BẠN </h4>
+                <ul class="class">
+                    <li><a href="/users/user_detail">Quản lý tài khoản</a></li>
+                    <li><a href="/users/change_detail" class="active">Thông tin tài khoản</a></li>
+                    <li><a href="/users/address_note">Sổ địa chỉ</a></li>
+                    <li><a href="./don_hang.htm">Đơn hàng của tôi</a></li>
+                    <li><a href="./sach_yeu_thich.htm">Danh sách yêu thích</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-9">
+                <div class="header-manage">
+                    <h3>Thông tin tài khoản</h3>
+                </div>
+                <div class="container">
+                    <% if (anchor == '1') { %>
+                        <script>
+                            window.onload = window.location.hash = '#wrapper-login';
+                        </script>
+                    <% } %>
+                    <div id="wrapper-login">
+                        <h3 id="changeinfor">Thông tin cá nhân <i class="fa fa-user-circle fa-lg" aria-hidden="true"></i></h3>
+                        <hr class="hr-detail">
+                        <br>
+                        <form class="form-changeinfor" action="/users/changeinfor/<%= user._id %>" method="post">
+                        <p>
+                            <label class="register" for="name"> Họ và tên <span>*</span>:</label>
+                            <input class="register-2" id="username" name="name" required="required" type="text" value="<%= user.name %>" />
+                        </p>
+                        <p>
+                            <label class="register" for="username"> Giới tính <span>*</span>:</label>
+                            <select class="register" name="gender">
+                                <option value="Nam" <% if (user.gender == "Nam") { %> selected="selected" <% } %> > Nam </option>
+                                <option value="Nữ" <% if (user.gender == "Nữ") { %> selected="selected" <% } %> > Nữ </option>
+                            </select>
+                        </p>
+                        <p>
+                            <label class="register" for="username"> Ngày sinh:</label>
+                            <select class="register" name="day">
+                                <option value="1" <% if (user.day == 1) { %> selected="selected" <% } %>> 01 </option>
+                                <option value="2" <% if (user.day == 2) { %> selected="selected" <% } %> > 02 </option>
+                                <option value="3" <% if (user.day == 3) { %> selected="selected" <% } %> > 03 </option>
+                                <option value="4" <% if (user.day == 4) { %> selected="selected" <% } %> > 04 </option>
+                                <option value="5" <% if (user.day == 5) { %> selected="selected" <% } %>> 05 </option>
+                                <option value="6" <% if (user.day == 6) { %> selected="selected" <% } %>> 06 </option>
+                                <option value="7" <% if (user.day == 7) { %> selected="selected" <% } %>> 07 </option>
+                                <option value="8" <% if (user.day == 8) { %> selected="selected" <% } %>> 08 </option>
+                                <option value="9" <% if (user.day == 9) { %> selected="selected" <% } %>> 09 </option>
+                                <option value="10" <% if (user.day == 10) { %> selected="selected" <% } %>> 10 </option>
+                                <option value="11" <% if (user.day == 11) { %> selected="selected" <% } %>> 11 </option>
+                                <option value="12" <% if (user.day == 12) { %> selected="selected" <% } %>> 12 </option>
+                                <option value="13" <% if (user.day == 13) { %> selected="selected" <% } %>> 13 </option>
+                                <option value="14" <% if (user.day == 14) { %> selected="selected" <% } %>> 14 </option>
+                                <option value="15" <% if (user.day == 15) { %> selected="selected" <% } %>> 15 </option>
+                                <option value="16" <% if (user.day == 16) { %> selected="selected" <% } %>> 16 </option>
+                                <option value="17" <% if (user.day == 17) { %> selected="selected" <% } %>> 17 </option>
+                                <option value="18" <% if (user.day == 18) { %> selected="selected" <% } %>> 18 </option>
+                                <option value="19" <% if (user.day == 19) { %> selected="selected" <% } %>> 19 </option>
+                                <option value="20" <% if (user.day == 20) { %> selected="selected" <% } %>> 20 </option>
+                                <option value="21" <% if (user.day == 21) { %> selected="selected" <% } %>> 21 </option>
+                                <option value="22" <% if (user.day == 22) { %> selected="selected" <% } %>> 22 </option>
+                                <option value="23" <% if (user.day == 23) { %> selected="selected" <% } %>> 23 </option>
+                                <option value="24" <% if (user.day == 24) { %> selected="selected" <% } %>> 24 </option>
+                                <option value="25" <% if (user.day == 25) { %> selected="selected" <% } %>> 25 </option>
+                                <option value="26" <% if (user.day == 26) { %> selected="selected" <% } %>> 26 </option>
+                                <option value="27" <% if (user.day == 27) { %> selected="selected" <% } %>> 27 </option>
+                                <option value="28" <% if (user.day == 28) { %> selected="selected" <% } %>> 28 </option>
+                                <option value="29" <% if (user.day == 29) { %> selected="selected" <% } %>> 29 </option>
+                                <option value="30" <% if (user.day == 30) { %> selected="selected" <% } %>> 30 </option>
+                                <option value="31" <% if (user.day == 31) { %> selected="selected" <% } %>> 31 </option>
+                            </select>
+                            <select class="register-2" name="month">
+                                <option value="1" <% if (user.month == 1) { %> selected="selected" <% } %>> 01 </option>
+                                <option value="2" <% if (user.month == 2) { %> selected="selected" <% } %>> 02 </option>
+                                <option value="3" <% if (user.month == 3) { %> selected="selected" <% } %>> 03 </option>
+                                <option value="4" <% if (user.month == 4) { %> selected="selected" <% } %>> 04 </option>
+                                <option value="5" <% if (user.month == 5) { %> selected="selected" <% } %>> 05 </option>
+                                <option value="6" <% if (user.month == 6) { %> selected="selected" <% } %>> 06 </option>
+                                <option value="7" <% if (user.month == 7) { %> selected="selected" <% } %>> 07 </option>
+                                <option value="8" <% if (user.month == 8) { %> selected="selected" <% } %>> 08 </option>
+                                <option value="9" <% if (user.month == 9) { %> selected="selected" <% } %>> 09 </option>
+                                <option value="10" <% if (user.month == 10) { %> selected="selected" <% } %>> 10 </option>
+                                <option value="11" <% if (user.month == 11) { %> selected="selected" <% } %>> 11 </option>
+                                <option value="12" <% if (user.month == 12) { %> selected="selected" <% } %>> 12 </option>
+                            </select>
+                            <select class="register-2" name="year">
+                                <option value="2012" <% if (user.year == 2012) { %> selected="selected" <% } %>>2012</option>
+                                <option value="2011" <% if (user.year == 2011) { %> selected="selected" <% } %>>2011</option>
+                                <option value="2010" <% if (user.year == 2010) { %> selected="selected" <% } %>>2010</option>
+                                <option value="2009" <% if (user.year == 2009) { %> selected="selected" <% } %>>2009</option>
+                                <option value="2008" <% if (user.year == 2008) { %> selected="selected" <% } %>>2008</option>
+                                <option value="2007" <% if (user.year == 2007) { %> selected="selected" <% } %>>2007</option>
+                                <option value="2006" <% if (user.year == 2006) { %> selected="selected" <% } %>>2006</option>
+                                <option value="2005" <% if (user.year == 2005) { %> selected="selected" <% } %>>2005</option>
+                                <option value="2004" <% if (user.year == 2004) { %> selected="selected" <% } %>>2004</option>
+                                <option value="2003" <% if (user.year == 2003) { %> selected="selected" <% } %>>2003</option>
+                                <option value="2002" <% if (user.year == 2002) { %> selected="selected" <% } %>>2002</option>
+                                <option value="2001" <% if (user.year == 2001) { %> selected="selected" <% } %>>2001</option>
+                                <option value="2000" <% if (user.year == 2000) { %> selected="selected" <% } %>>2000</option>
+        
+                                <option value="1999" <% if (user.year == 1999) { %> selected="selected" <% } %>>1999</option>
+                                <option value="1998" <% if (user.year == 1998) { %> selected="selected" <% } %>>1998</option>
+                                <option value="1997" <% if (user.year == 1997) { %> selected="selected" <% } %>>1997</option>
+                                <option value="1996" <% if (user.year == 1996) { %> selected="selected" <% } %>>1996</option>
+                                <option value="1995" <% if (user.year == 1995) { %> selected="selected" <% } %>>1995</option>
+                                <option value="1994" <% if (user.year == 1994) { %> selected="selected" <% } %>>1994</option>
+                                <option value="1993" <% if (user.year == 1993) { %> selected="selected" <% } %>>1993</option>
+                                <option value="1992" <% if (user.year == 1992) { %> selected="selected" <% } %>>1992</option>
+                                <option value="1991" <% if (user.year == 1991) { %> selected="selected" <% } %>>1991</option>
+                                <option value="1990" <% if (user.year == 1990) { %> selected="selected" <% } %>>1990</option>
+        
+                                <option value="1989" <% if (user.year == 1989) { %> selected="selected" <% } %>>1989</option>
+                                <option value="1988" <% if (user.year == 1988) { %> selected="selected" <% } %>>1988</option>
+                                <option value="1987" <% if (user.year == 1987) { %> selected="selected" <% } %>>1987</option>
+                                <option value="1986" <% if (user.year == 1986) { %> selected="selected" <% } %>>1986</option>
+                                <option value="1985" <% if (user.year == 1985) { %> selected="selected" <% } %>>1985</option>
+                                <option value="1984" <% if (user.year == 1984) { %> selected="selected" <% } %>>1984</option>
+                                <option value="1983" <% if (user.year == 1983) { %> selected="selected" <% } %>>1983</option>
+                                <option value="1982" <% if (user.year == 1982) { %> selected="selected" <% } %>>1982</option>
+                                <option value="1981" <% if (user.year == 1981) { %> selected="selected" <% } %>>1981</option>
+                                <option value="1980" <% if (user.year == 1980) { %> selected="selected" <% } %>>1980</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label class="register" id="address1" for="address"> Địa chỉ <span>*</span>:</label>
+                            <textarea name="address" required="required" id="address2" ><%= user.address %></textarea>
+                        </p>
+                        <p>
+                            <label class="register" for="username"> Số điện thoại <span>*</span>:</label>
+                            <input class="register-2" id="username" name="telephone" required="required" type="text" value="<%= user.telephone %>" />
+                        </p>
+                        <input type="hidden" value="<%= csrfToken%>" name="_csrf"/>
+                        <p class="login button">
+                            <input type="submit" value="Lưu thông tin" />
+                        </p>
+                        </form>
+
+                        <hr>
+
+                        <% if (anchor == '2') { %>
+                            <script>
+                                window.onload = window.location.hash = '#changepassword';
+                            </script>
+                        <% } %>
+                        <h3 id="changepassword">Thông tin đăng nhập <i class="fa fa-address-book-o fa-lg" aria-hidden="true"></i></h3>
+                        <hr class="hr-detail">
+                        <br>
+                        <% if (messages.length > 0) { %>
+                            <div class="alert alert-danger">
+                            <% messages.forEach(function(message){ %>
+                                <p><%= message %></p> 
+                            <% }) %>
+                            </div>
+                        <% } %>
+                        <form class="form-changepassword" action="/users/changepassword/<%= user._id %>" method="post">
+                        <p>
+                            <label class="register" for="password" data-icon="p"> Mật khẩu cũ <span>*</span>: </label>
+                            <input class="register" id="password" name="oldpassword" required="required" type="password" placeholder="Nhập mật khẩu của bạn" minlength="6" />
+                        </p>
+                        <p>
+                            <label class="register" for="password" data-icon="p"> Mật khẩu mới <span>*</span>: </label>
+                            <input class="register" id="password" name="newpassword" required="required" type="password" placeholder="Nhập mật khẩu của bạn" minlength="6" />
+                        </p>
+                        <p>
+                            <label class="register" for="password" data-icon="p"> Xác nhận mật khẩu <span>*</span>: </label>
+                            <input class="register" id="password" name="confirmpassword" required="required" type="password" placeholder="Nhập lại mật khẩu của bạn" minlength="6" />
+                        </p>
+                        <input type="hidden" value="<%= csrfToken%>" name="_csrf"/>
+                        <p class="login button">
+                            <input type="submit" value="Lưu mật khẩu" />
+                        </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <footer>
+         <% include ./partials/footer.ejs %>
+    </footer>
+    </div>
+</body>
+
+</html>

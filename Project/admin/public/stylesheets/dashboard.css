@@ -1,0 +1,365 @@
+body {
+	background: #f1f4f7;
+	padding-top: 50px;
+	color: #5f6468;
+}
+
+p {
+	color: #777;
+}
+
+a, a:hover, a:focus {
+	color: #30a5ff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #5f6468;
+}
+
+h1 {
+	font-weight: 300;
+	font-size: 40px;
+}
+
+h2 {
+	font-weight: 300;
+	margin-bottom: 20px;
+}
+
+h3, h4 {
+	font-weight: 300;
+}
+
+.large {
+	font-size: 2em;
+}
+
+.text-muted {
+	color: #9fadbb;
+}
+
+.color-gray { color: #5f6468; }
+.color-blue { color: #30a5ff; }
+.color-teal { color: #1ebfae; }
+.color-orange { color: #ffb53e; }
+.color-red { color: #f9243f; }
+
+.bg-primary .glyphicon-remove { color: #5f6468;}
+.bg-primary .glyphicon-remove:hover { color: #ef4040;}
+
+.no-padding {
+	padding: 0; margin: 0;
+}
+
+.glyphicon-xl {
+	font-size: 6em;
+}
+
+.glyphicon-l {
+	font-size: 3em;
+}
+
+.glyphicon-m {
+	font-size: 1.5em;
+}
+
+.glyphicon-s {
+	font-size: 0.75em;
+}
+
+/*Backgrounds*/
+
+.bg-primary {
+	color: #1b3548;
+	background-color: #e9ecf2;
+}
+a.bg-primary:hover {
+	background-color: #e9ecf2;
+}
+.bg-success {
+	color: #fff;
+	background-color: #8ad919;
+}
+a.bg-success:hover {
+	background-color: #8ad919;
+}
+.bg-success a {
+	color: rgba(255, 255, 255, .75);
+}
+.bg-info {
+	color: #fff;
+	background-color: #30a5ff;
+}
+a.bg-info:hover {
+	background-color: #30a5ff;
+}
+.bg-info a {
+	color: rgba(255, 255, 255, .75);
+}
+.bg-warning {
+	color: #fff;
+	background-color: #ffb53e;
+}
+a.bg-warning:hover {
+	background-color: #ffb53e;
+}
+.bg-warning a {
+	color: rgba(255, 255, 255, .75);
+}
+.bg-danger {
+	color: #fff;
+	background-color: #f9243f;
+}
+a.bg-danger:hover {
+	background-color: #f9243f;
+}
+.bg-danger a {
+	color: rgba(255, 255, 255, .75);
+}
+
+/*Panels*/
+
+.panel {
+	border: 0;
+}
+
+.panel-heading {
+	font-size: 18px;
+	font-weight: 300;
+	letter-spacing: 0.025em;
+	height: 66px;
+	line-height: 45px;
+}
+
+.panel-default .panel-heading {
+	background: #fff;
+	border-bottom: 1px solid #eee;
+	color: #5f6468;
+}
+
+.panel-footer {
+	background: #fff;
+	border-top: 1px solid #eee;
+}
+
+.panel-widget {
+	padding: 0;
+	position: relative;
+}
+
+.panel-widget .panel-footer {
+	border: 0;
+	text-align: center;
+}
+
+.panel-footer .input-group {
+	padding: 0px;
+	margin: 0 -5px;
+}
+
+.panel-footer .input-group-btn:last-child>.btn,
+.panel-footer .input-group-btn:last-child>.btn-group {
+	margin: 0;
+}
+
+.panel-widget .panel-footer a {
+	color: #999;
+}
+
+.panel-widget .panel-footer a:hover {
+	color: #666;
+	text-decoration: none;
+}
+
+.panel-blue { background: #30a5ff; color: #fff; }
+.panel-teal { background: #1ebfae; color: #fff; }
+.panel-orange { background: #ffb53e; color: #fff; }
+.panel-red { background: #f9243f; color: #fff; }
+
+.panel-blue .panel-body p,
+.panel-teal .panel-body p,
+.panel-orange .panel-body p,
+.panel-red .panel-body p {
+	color: #fff;
+	color: rgba(255, 255, 255, .8);
+}
+
+.panel-blue .panel-heading,
+.panel-teal .panel-heading,
+.panel-orange .panel-heading,
+.panel-red .panel-heading {
+	border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+
+.panel-blue .text-muted,
+.panel-teal .text-muted,
+.panel-orange .text-muted,
+.panel-red .text-muted {
+	color: rgba(255, 255, 255, .5);
+}
+
+.dark-overlay {
+	background: rgba(0, 0, 0, .05);
+	text-align: center;
+}
+
+.widget-left {
+	height: 80px;
+	padding-top: 15px;
+	text-align: center;
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+}
+
+.widget-right {
+	text-align: left;
+	line-height: 1.6em;
+	margin: 0px;
+	padding: 20px;
+	height: 80px;
+	color: #999;
+	font-weight: 300;
+	background: #fff;
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+
+@media (max-width: 768px) {
+	.widget-right {
+	width: 100%;
+	margin: 0;
+	text-align: center;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	}
+}
+
+@media (max-width: 768px) {
+	.widget-left {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	}
+}
+
+.widget-right .text-muted {
+	color: #9fadbb;
+}
+.widget-right .large {
+	color: #5f6468;
+}
+
+.panel-blue .widget-left { background: #30a5ff; color: #fff; }
+.panel-teal .widget-left { background: #1ebfae; color: #fff; }
+.panel-orange .widget-left { background: #ffb53e; color: #fff; }
+.panel-red .widget-left { background: #f9243f; color: #fff; }
+
+.panel-widget {
+	background: #fff;
+}
+
+
+
+/*Tabs*/
+
+.panel .tabs {
+	margin: 0;
+	padding: 0;
+}
+
+/*Charts*/
+
+.main-chart {
+	background: #fff;
+}
+
+
+/*Monthly chart*/
+
+
+.panel-heading .glyphicon {
+	margin-right: 10px;
+}
+
+
+
+/*Icons*/
+
+
+.sidebar .glyph, .user-menu .glyph {
+	height: 16px;
+	width: 16px;
+	margin: 0 10px 0 0;
+	stroke-width: 3px;
+}
+
+.user-menu .glyph {
+	stroke-width: 4px;
+}
+
+.alert .glyph, .panel-heading .glyph {
+	width: 26px;
+	height: 26px;
+	margin: 0 10px 0 0;
+	stroke-width: 2px;
+}
+
+.panel-widget .glyph {
+	stroke-width: 2px;
+}
+
+.todo-list .glyph {
+	width: 14px;
+	height: 14px;
+	stroke-width: 4px;
+	color: #999;
+}
+
+.glyph.table {
+	background: none;
+	border: none;
+}
+
+/*Icon Grid*/
+
+.icon-grid div {
+	border: 1px solid #ddd;
+	margin: 0 0 -1px -1px;
+	text-align: center;
+	padding: 10px 0 20px 0;
+}
+
+.icon-grid svg {
+	width: 35%;
+	display: block;
+	margin: 0 auto;
+}
+
+.icon-grid h4 {
+	display: none;
+}
+
+.icon-grid pre {
+	margin: 10px 10px -10px 10px;
+	border-radius: 0;
+	font-size: 10px;
+	border-color: #ddd;
+	height: 65px;
+	overflow: scroll;
+}
+
+.info-box{display:block;min-height:90px;background:#fff;width:100%;box-shadow:0 1px 1px rgba(0,0,0,0.1);border-radius:2px;margin-bottom:15px}
+.info-box small{font-size:14px}
+.info-box .progress{background:rgba(0,0,0,0.2);margin:5px -10px 5px -10px;height:2px}
+.info-box .progress,.info-box .progress .progress-bar{border-radius:0}
+.info-box .progress .progress-bar{background:#fff}
+.info-box-number{display:block;font-weight:bold;font-size:18px}
+.progress-description,.info-box-text{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.info-box-text{text-transform:uppercase}
+.info-box-more{display:block}
+.progress-description{margin:0}
+.progress-bar{-webkit-box-shadow:none;box-shadow:none}
+.progress,.progress>.progress-bar,.progress .progress-bar,.progress>.progress-bar .progress-bar{border-radius:1px}

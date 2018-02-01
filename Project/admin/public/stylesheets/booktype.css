@@ -1,0 +1,32 @@
+body {
+  	background: #f1f4f7;
+  	padding-top: 50px;
+  	color: #5f6468;
+}
+
+a#btn_add_book {
+    text-decoration: none;
+    background-color: 	#90C5AB;
+    color: white;
+    width: 300px;
+    height: 30px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+    align-items: center;
+    vertical-align: middle;
+}
+
+a#btn_add_book:hover{
+  opacity: 0.8;
+}
+
+.bookimg img{
+  with: 50%;
+  height: 50%;
+}
+
+.table{
+  width: 90%;
+  margin: auto;
+}

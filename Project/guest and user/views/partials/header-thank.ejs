@@ -1,0 +1,74 @@
+            <div id="top-header">
+                <div class="container">
+                    <div class="header_bootm">
+                        <div class="col-sm-3 span_1">
+                            <div class="logo">
+                                <a href="/"><img src="/images/logo.png" id="logo" alt="" width="209px" height="80px" /></a>
+                            </div>
+                        </div>
+                        <div class="col-sm-9 row_2">
+                            <div class="header_bottom_right">
+                                <div class="search col-sm-4">
+                                    <form id="search" action="/search" method="post">
+                                        <input type="search" name="search" required="required" placeholder="Tìm kiếm sách" onfocus="this.placeholder = '';" onblur="if (this.placeholder == '') {this.placeholder = 'Tìm kiếm sách';}">
+                                        <input type="submit" value="">
+                                    </form>
+                                </div>
+                                <ul id="menu-right">
+                                    <li class="acc drop-down">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></button>
+                                        <% if (!session.email) { %>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <p class="dropdown-header"> Tài khoản </p>
+                                            <div class="divider"></div>
+                                            <a class="dropdown-item" href="/login">
+                                                <div class="button-login">Đăng nhập</div>
+                                            </a>
+                                            <a class="dropdown-item" href="/register">
+                                                <div class="button-reg">Đăng ký</div>
+                                            </a>
+                                        </div>
+                                        <% } else { %>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <p class="dropdown-header"> <%= session.name %> </p>
+                                            <div class="divider"></div>
+                                            <a class="dropdown-item" href="/users/user_detail">
+                                                <div class="manage">Quản lí tài khoản</div>
+                                            </a>
+                                            <a class="dropdown-item" href="/order">
+                                                <div class="order">Đơn hàng của tôi</div>
+                                            </a>
+                                            <a class="dropdown-item" href="/">
+                                                <div class="like">Sách yêu thích</div>
+                                            </a>
+                                            <a class="dropdown-item" href="/logout">
+                                                <div class="button-reg">Đăng xuất</div>
+                                            </a>
+                                        </div>
+                                        <% } %>
+                                        <div class="clearfix"> </div>
+                                    </li>                                   
+                                </ul>
+                                <div class="clearfix "> </div>
+                            </div>
+                        </div>
+                        <div class="clearfix "></div>
+                    </div>
+                </div>
+            </div>
+            <div id="bot-header">
+                <div class="container">
+                    <div class="header_top ">
+                        <div class="col-sm-9 h_menu4 ">
+                            <div id="category-header">
+                                
+                            </div>
+                        </div>
+                        <div id="hotline">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <strong> Hotline: 0123.3456.789 </strong>
+                        </div>
+                        <div class="clearfix "> </div>
+                    </div>
+                </div>
+            </div>

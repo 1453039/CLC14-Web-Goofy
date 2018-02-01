@@ -1,0 +1,234 @@
+<div id="top-header">
+    <div class="container">
+        <div class="header_bootm">
+            <div class="col-sm-3 span_1">
+                <div class="logo">
+                    <a href="/"><img src="/images/logo.png" id="logo" alt="" width="209px" height="80px" /></a>
+                </div>
+            </div>
+            <div class="col-sm-9 row_2">
+                <div class="header_bottom_right">
+                    <div class="search col-sm-4">
+                        <form id="search" action="/search" method="post">
+                            <input type="search" name="search" value="Tìm kiếm sách" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Tìm kiếm sách';}">
+                            <input type="submit" value="">
+                        </form>
+                    </div>
+                    <ul id="menu-right">
+                        <li class="acc drop-down">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></button>
+                            <% if (!session.email) { %>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <p class="dropdown-header"> Tài khoản </p>
+                                            <div class="divider"></div>
+                                            <a class="dropdown-item" href="/login">
+                                                <div class="button-login">Đăng nhập</div>
+                                            </a>
+                                            <a class="dropdown-item" href="/register">
+                                                <div class="button-reg">Đăng ký</div>
+                                            </a>
+                                        </div>
+                                        <% } else { %>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <p class="dropdown-header"> <%= session.name %> </p>
+                                            <div class="divider"></div>
+                                            <a class="dropdown-item" href="/users/user_detail">
+                                                <div class="manage">Quản lí tài khoản</div>
+                                            </a>
+                                            <a class="dropdown-item" href="/order">
+                                                <div class="order">Đơn hàng của tôi</div>
+                                            </a>
+                                            <a class="dropdown-item" href="/">
+                                                <div class="like">Sách yêu thích</div>
+                                            </a>
+                                            <a class="dropdown-item" href="/logout">
+                                                <div class="button-reg">Đăng xuất</div>
+                                            </a>
+                                        </div>
+                                        <% } %>
+                            <div class="clearfix"> </div>
+                        </li>
+                        <li class="bag drop-down">
+                            <button class="btn bag_left btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        <% if (session.cart.totalQty) { %>
+                                        <div id="bag-text"> <%= session.cart.totalPrice.toLocaleString('en-US', {minimumIntegerDigits: 3}) %> ₫ (<%= session.cart.totalQty %>) </div>
+                                        <% } else { %>
+                                        <div id="bag-text"> 0 ₫ (0) </div>
+                                        <% } %>
+                                        </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <p class="dropdown-header "> Giỏ hàng </p>
+                                <div class="divider "></div>
+                                <% items.forEach(function(book) { %>
+                                    <a class="dropdown-item book-item" href="/book_detail/<%= book.item._id %>">
+                                        <div class="detail">
+                                            <img src="<%= book.item.imagepathsmall %>" alt="">
+                                            <ul>
+                                                <li>
+                                                    <%= book.item.title %>
+                                                </li>
+                                                <li>
+                                                    <%= book.item.newprice.toLocaleString('en-US', {minimumIntegerDigits: 3}) %> ₫ </li>
+                                            </ul>
+                                        </div>
+                                        <div style="float: right; padding-top: 15px; padding-right: 15px;">
+                                            <a href="/delete/<%= book.item._id %>" class="delete"> <i class="fa fa-times-circle"></i></a>
+                                        </div>
+                                    </a>
+                                    <% }) %>
+                                        <div class="divider "></div>
+                                        <p id="Tong"> Tổng tiền: <strong> <%= session.cart.totalPrice.toLocaleString('en-US', {minimumIntegerDigits: 3}) %> ₫ </strong></p>
+                                        <a class="button-bag" style="vertical-align:middle" href="/cart"><span>XEM GIỎ HÀNG</span></a>
+                            </div>
+                            <div class="clearfix "> </div>
+                        </li>
+                    </ul>
+                    <div class="clearfix "> </div>
+                </div>
+            </div>
+            <div class="clearfix "></div>
+        </div>
+    </div>
+</div>
+<div id="bot-header">
+    <div class="container">
+        <div class="header_top">
+            <div class="col-sm-9">
+                <div class="dropdown">
+                    <div id="category-header">
+                        <i class="fa fa-bars"></i>
+                        <p> DANH MỤC SÁCH </p>
+                        <span></span>
+                    </div>
+                    <ul class="dropdown-content">
+                        <li class="dropdown">
+                            <a class="dropbtn" href="sach_ban_chay.htm">Sách bán chạy</a>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropbtn" href="sach_moi.htm">Sách mới</a>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropbtn" href="sach_giam_gia.htm">Sách giảm giá</a>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropbtn" href="/book_type/1"><span>Sách giáo khoa</span></a>
+                            <ul class="dropdown-content" id="gk">
+                                <li><a href="sach_giao_khoa.htm">Lớp 1</a></li>
+                                <li><a href="sach_giao_khoa.htm">Lớp 2</a></li>
+                                <li><a href="sach_giao_khoa.htm">Lớp 3</a></li>
+                                <li><a href="sach_giao_khoa.htm">Lớp 4</a></li>
+                                <li><a href="sach_giao_khoa.htm">Lớp 5</a></li>
+                                <li><a href="sach_giao_khoa.htm">Lớp 6</a></li>
+                                <li><a href="sach_giao_khoa.htm">Lớp 7</a></li>
+                                <li><a href="sach_giao_khoa.htm">Lớp 8</a></li>
+                                <li><a href="sach_giao_khoa.htm">Lớp 9</a></li>
+                                <li><a href="sach_giao_khoa.htm">Lớp 10</a></li>
+                                <li><a href="sach_giao_khoa.htm">Lớp 11</a></li>
+                                <li><a href="sach_giao_khoa.htm">Lớp 12</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropbtn" href="/book_type/2"><span>Sách tham khảo</span></a>
+                            <ul class="dropdown-content" id="tk">
+                                <li><a href="sach_tham_khao.htm">Lớp 1</a></li>
+                                <li><a href="sach_tham_khao.htm">Lớp 2</a></li>
+                                <li><a href="sach_tham_khao.htm">Lớp 3</a></li>
+                                <li><a href="sach_tham_khao.htm">Lớp 4</a></li>
+                                <li><a href="sach_tham_khao.htm">Lớp 5</a></li>
+                                <li><a href="sach_tham_khao.htm">Lớp 6</a></li>
+                                <li><a href="sach_tham_khao.htm">Lớp 7</a></li>
+                                <li><a href="sach_tham_khao.htm">Lớp 8</a></li>
+                                <li><a href="sach_tham_khao.htm">Lớp 9</a></li>
+                                <li><a href="sach_tham_khao.htm">Lớp 10</a></li>
+                                <li><a href="sach_tham_khao.htm">Lớp 11</a></li>
+                                <li><a href="sach_tham_khao.htm">Lớp 12</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropbtn" href="/book_type/3"><span>Văn học trong nước</span></a>
+                            <ul class="dropdown-content" id="vhtn">
+                                <li><a href="van_hoc_trong_nuoc.htm">Tiểu thuyết</a></li>
+                                <li><a href="van_hoc_trong_nuoc.htm">Truyện ngắn - Tản văn</a></li>
+                                <li><a href="van_hoc_trong_nuoc.htm">Huyền bí - Giả tưởng</a></li>
+                                <li><a href="van_hoc_trong_nuoc.htm">Phóng sự - Ký sự</a></li>
+                                <li><a href="van_hoc_trong_nuoc.htm">Trinh thám - Kinh dị</a></li>
+                                <li><a href="van_hoc_trong_nuoc.htm">Tiểu sử - Hồi ký</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropbtn" href="/book_type/4"><span>Văn học nước ngoài</span></a>
+                            <ul class="dropdown-content" id="vhnn">
+                                <li><a href="van_hoc_nuoc_ngoai.htm">Tiểu sử - Hồi ký</a></li>
+                                <li><a href="van_hoc_nuoc_ngoai.htm">Truyện lịch sử - Kiếm hiệp</a></li>
+                                <li><a href="van_hoc_nuoc_ngoai.htm">Truyện ngắn - Tản văn</a></li>
+                                <li><a href="van_hoc_nuoc_ngoai.htm">Tác phẩm kinh điển</a></li>
+                                <li><a href="van_hoc_nuoc_ngoai.htm">Huyền bí - Giả tưởng</a></li>
+                                <li><a href="van_hoc_nuoc_ngoai.htm">Trinh thám - Kinh dị</a></li>
+                                <li><a href="van_hoc_nuoc_ngoai.htm">Tiểu thuyết tình cảm - Lãng mạn</a></li>
+                                <li><a href="van_hoc_nuoc_ngoai.htm">Tiểu thuyết đam mỹ</a></li>
+                                <li><a href="van_hoc_nuoc_ngoai.htm">Bách hợp</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropbtn" href="/book_type/5"><span>Truyện tranh</span></a>
+                            <ul class="dropdown-content" id="tt">
+                                <li><a href="truyen_tranh.htm">Truyện tranh Nhật Bản</a></li>
+                                <li><a href="truyen_tranh.htm">Truyện tranh Hàn Quốc</a></li>
+                                <li><a href="truyen_tranh.htm">Truyện tranh Trung Quốc</a></li>
+                                <li><a href="truyen_tranh.htm">Truyện tranh phương Tây</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropbtn" href="/book_type/6"><span>Sách học ngoại ngữ</span></a>
+                            <ul class="dropdown-content" id="nn">
+                                <li><a href="hoc_ngoai_ngu.htm">Từ điển</a></li>
+                                <li><a href="hoc_ngoai_ngu.htm">Sách học tiếng Anh</a></li>
+                                <li><a href="hoc_ngoai_ngu.htm">Sách học tiếng Hoa</a></li>
+                                <li><a href="hoc_ngoai_ngu.htm">Sách học tiếng Nhật</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropbtn" href="/book_type/7"><span>Sách thiếu nhi</span></a>
+                            <ul class="dropdown-content" id="stn">
+                                <li><a href="sach_thieu_nhi.htm">Truyện cổ tích - Thần thoại</a></li>
+                                <li><a href="sach_thieu_nhi.htm">Vừa học vừa chơi</a></li>
+                                <li><a href="sach_thieu_nhi.htm">Kiến thức - Kỹ năng</a></li>
+                                <li><a href="sach_thieu_nhi.htm">Văn học</a></li>
+                                <li><a href="sach_thieu_nhi.htm">Truyện kể bé nghe</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropbtn" href="/book_type/8"><span>Sách kỹ năng sống</span></a>
+                            <ul class="dropdown-content" id="kns">
+                                <li><a href="ky_nang_song.htm">Kỹ năng sống</a></li>
+                                <li><a href="ky_nang_song.htm">Nghệ thuật sống đẹp</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropbtn" href="nha_phat_hanh.htm"><span>Nhà phát hành</span></a>
+                            <ul class="dropdown-content" id="nph">
+                                <li><a href="chi_tiet_nph.htm">Phương Nam</a></li>
+                                <li><a href="chi_tiet_nph.htm">Văn Lang</a></li>
+                                <li><a href="chi_tiet_nph.htm">NXB Trẻ</a></li>
+                                <li><a href="chi_tiet_nph.htm">Thái Hà</a></li>
+                                <li><a href="chi_tiet_nph.htm">Bách Việt</a></li>
+                                <li><a href="chi_tiet_nph.htm">Nhã Nam</a></li>
+                                <li><a href="chi_tiet_nph.htm">Alphabooks</a></li>
+                                <li><a href="chi_tiet_nph.htm">NXB Kim Đồng</a></li>
+                                <li><a href="chi_tiet_nph.htm">Đông A</a></li>
+                                <li><a href="chi_tiet_nph.htm">Người Trẻ Việt</a></li>
+                                <li><a href="chi_tiet_nph.htm">Skybooks</a></li>
+                                <li><a href="nha_phat_hanh.htm"><b>Tất cả nhà phát hành</b></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="hotline">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <strong> Hotline: 0123.3456.789 </strong>
+            </div>
+            <div class="clearfix "> </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,252 @@
+<!DOCTYPE <html>
+<html>
+
+<head>
+    <title>G4-Goofy</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="/images/favicon.ico" rel="shortcut icon">
+
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/stylesheets/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/stylesheets/style_book_details.css" rel="stylesheet" media="screen">
+    <link href="/stylesheets/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js "></script>
+    <script src="/javascripts/bootstrap.min.js "></script>
+    <script src="/javascripts/script.js "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js "></script>
+    <script>
+    $( document ).ready(function() {       
+       var str = document.getElementById('desc').innerHTML.toString();
+       var str = str.replace(/&lt;/g, "<");
+       var str = str.replace(/&gt;/g, ">");
+       document.getElementById('desc').innerHTML = str;           
+    });
+    </script>
+</head>
+
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9&appId=145748539291860";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="fb-root"></div>
+
+    <div id="wrapper">
+        <header>
+            <% include ./partials/header-other.ejs %>
+        </header>
+        <div class="container">
+            <div class="span9">
+                <ul class="breadcrumb">
+                    <li><a href="index.htm">Trang chủ</a> <span class="divider"></span></li>
+                    <li><a href="van_hoc_nuoc_ngoai.htm"> <%= book.type %></a> <span class="divider"></span></li>
+                    <li><a href="van_hoc_nuoc_ngoai.htm"><%= book.category %></a> <span class="divider"></span></li>
+                    <li class="active"><%= book.title %></li>
+                </ul>
+                <div class="row">
+                    <div id="gallery" class="span3">
+                        <a href="" title="Sherlock Holmes">
+                            <img src="<%= book.imagepathlarge %>" style="width:100%" alt="Sherlock Holmes" />
+                        </a>
+                    </div>
+                    <div class="span6">
+                        <h3><%= book.title %></h3>
+                        <small id="tacgia"><b>Tác giả: <a href="tac_gia.htm"><%= book.author %></a></b></small>
+                        <small><b>Nhà phát hành: <a href="chi_tiet_nph.htm"><%= book.publisher %></a></b></small>
+                        <small id="hinhthuc"><b>Hình thức: <a href="#">Bìa mềm</a></b></small>
+                        <p id="comment"> <a href="#"><i class="fa fa-pencil"> Gửi nhận xét của bạn</i></a></p>
+                        <p id="favorite"> <a href="#"><i class="fa fa-star"> Thêm vào yêu thích</i></a></p>
+                        <hr>
+                        <form class="form-horizontal">
+                            <div class="control-group">
+                                <label class="control-label" id="gia"><h2><b><%= book.newprice.toLocaleString('en-US', {minimumIntegerDigits: 3}) %> ₫</b></h2></label>
+                                <div>
+                                    <a href="/muangay/<%= book._id %>" class="btn btn-large btn-primary pull-right" id="muangay"> Mua ngay  <i class="fa fa-shopping-bag fa-lg"></i></a>
+                                </div>
+                            </div>
+                            <p id="giabia"> Giá bìa: <%= book.oldprice.toLocaleString('en-US', {minimumIntegerDigits: 3}) %> ₫</p>
+                            <% if (book.discount > 0) { %>
+                            <p id="tietkiem"> Tiết kiệm: <b><%= book.saving.toLocaleString('en-US', {minimumIntegerDigits: 3}) %> ₫ (-<%=book.discount%>%)</b></p>
+                            <% } %>
+                        </form>
+                        <hr>
+                        <p class="khuyenmai"><i class="fa fa-check"></i> Bọc plastic miễn phí</p>
+                        <p class="khuyenmai"><i class="fa fa-check"></i> Giao hàng miễn phí toàn quốc <strong>≥ 250.000 đ</strong></p>
+                        <hr>
+                        <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                        <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Chia sẻ</a></div>
+                        <a id="chitiet" class="btn btn-small pull-right" href="#detail">Thông tin chi tiết</a>
+                        <br>
+                        <a href="#" name="detail"></a>
+                    </div>
+
+                    <div class="span9" id="details">
+                        <ul id="bookDetail" class="nav nav-tabs">
+                            <li class="active"><a href="#home" data-toggle="tab">Thông tin sách</a></li>
+                            <li><a href="#profile" data-toggle="tab">Sách liên quan</a></li>
+                        </ul>
+                        <div id="myTabContent" class="tab-content">
+                            <div class="tab-pane fade active in" id="home">
+                                <h3>Giới thiệu sách</h3>
+                                <hr>
+                                <p style="color:red; font-size: 17px; font-weight: bold;"> <%= book.title %></p>
+                                <p id="desc"><%= book.description %></p>
+                                <br>
+
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr class="techSpecRow">
+                                            <th colspan="2">
+                                                <h3 style="padding: 0;">Thông tin chi tiết</h3>
+                                            </th>
+                                        </tr>
+                                        <tr class="techSpecRow">
+                                            <td class="techSpecTD1">Tác giả</td>
+                                            <td class="techSpecTD2"><a href="tac_gia.htm"><%= book.author %></a></td>
+                                        </tr>
+                                        <tr class="techSpecRow">
+                                            <td class="techSpecTD1">Nhà phát hành</td>
+                                            <td class="techSpecTD2"><a href="chi_tiet_nph.htm"><%= book.publisher %></a></td>
+                                        </tr>
+                                        <tr class="techSpecRow">
+                                            <td class="techSpecTD1">Danh mục</td>
+                                            <td class="techSpecTD2"><a href="#"><%= book.category %></a></td>
+                                        </tr>
+                                        <tr class="techSpecRow">
+                                            <td class="techSpecTD1">Nhà xuất bản</td>
+                                            <td class="techSpecTD2"><%= book.publishing_company %></td>
+                                        </tr>
+                                        <tr class="techSpecRow">
+                                            <td class="techSpecTD1">Số trang</td>
+                                            <td class="techSpecTD2"><%= book.numberpage %></td>
+                                        </tr>
+                                        <tr class="techSpecRow">
+                                            <td class="techSpecTD1">Kích thước</td>
+                                            <td class="techSpecTD2"><%= book.size %></td>
+                                        </tr>
+                                        <tr class="techSpecRow">
+                                            <td class="techSpecTD1">Trọng lượng</td>
+                                            <td class="techSpecTD2"><%= book.weight %></td>
+                                        </tr>
+                                        <tr class="techSpecRow">
+                                            <td class="techSpecTD1">Lượt xem</td>
+                                            <td class="techSpecTD2"><%= book.view %></td>
+                                        </tr>
+                                        <tr class="techSpecRow">
+                                            <td class="techSpecTD1">Ngày phát hành</td>
+                                            <td class="techSpecTD2"><%= book.release_date.getDate() + '/' + book.release_date.getMonth() + '/' +book.release_date.getFullYear() %></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div id="center">
+                                    <a href="/muangay/<%= book._id %>" class="btn btn-large btn-primary" id="muangay-2"> Mua ngay  <i class="fa fa-shopping-bag fa-lg"></i></a>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="profile">
+                                <div id="myTab" class="pull-left">
+                                    <a id="block" href="#blockView" data-toggle="tab"><span class="btn btn-large btn-primary"><i class="fa fa-th-large"></i></span></a>
+                                    <a id="list" href="#listView" data-toggle="tab"><span class="btn btn-large"><i class="fa fa-list"></i></span></a>
+                                </div>
+                                <br>
+                                <br>
+                                <hr>
+                                <div class="tab-content">
+                                    <div class="tab-pane" id="listView">
+                                        <% relatebooks.forEach(function(book){ %>
+                                        <div class="row">
+                                            <div class="span2">
+                                                <img src="<%= book.imagepathmedium %>" alt="" />
+                                            </div>
+                                            <div class="span4">
+                                                <a href="/book_detail/<%= book.id %>">
+                                                    <h3><%= book.title %></h3>
+                                                </a>
+                                                <hr>
+                                                <a href="tac_gia.htm">
+                                                    <h5><%= book.author %></h5>
+                                                </a>
+                                                <h4><strong><%= book.newprice.toLocaleString('en-US', {minimumIntegerDigits: 3}) %> ₫</strong></h4>
+                                                <p>
+                                                    <%= book.summary %>
+                                                </p>
+                                                <a class="btn btn-small pull-right" href="/book_detail/<%= book.id %>">Xem chi tiết</a>
+                                                <br class="clr" />
+                                                <hr>
+                                            </div>
+                                            <div class="span3 alignR">
+                                                <form class="form-horizontal qtyFrm">
+                                                    <a id="mua" href="#" class="btn btn-large btn-primary">THÊM VÀO GIỎ</a>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <hr class="soft"/>
+                                        <% }) %>
+                                    </div>
+
+                                    <div class="tab-pane active" id="blockView">
+                                        <ul class="thumbnails">
+                                            <% relatebooks.forEach(function(book){ %>
+                                            <li class="span3">
+                                                <div class="thumbnail">
+                                                    <a href="/book_detail/<%= book.id %>"><img src="<%= book.imagepathmedium %>" alt="" /></a>
+                                                    <div class="caption">
+                                                        <div class="slide-copy">
+                                                            <br/>
+                                                            <h5><a href="/book_detail/<%= book.id %>"><%= book.title %></a></h5>
+                                                            <h6><a href="#"><%= book.author %></a></h6>
+                                                            <h4><strong><%= book.newprice.toLocaleString('en-US', {minimumIntegerDigits: 3}) %> ₫</strong></h4>
+                                                            <a href="/add-to-cart/<%= book.id %>" class="add">THÊM VÀO GIỎ</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <% }) %>
+                                        </ul>
+                                        <hr class="soft" />
+                                    </div>
+                                </div>
+                                <br class="clr">
+                            </div>
+                        </div>
+                        <br>
+                        <div>
+                            <h3> Gửi nhận xét của bạn </h3>
+                        </div>
+
+                        <hr>
+                        <% if (!session.email) { %>
+                            <div> Vui lòng <a href="/login"><b>đăng nhập</b></a> để gửi nhận xét </div>
+                        <% } else { %>
+                            <form id="comment">
+                                <textarea placeholder="Nhập nội dung nhận xét vào đây" name="commenttext" id="commenttext" class="Textbox" rows="8" data-gramm="true" spellcheck="false" data-gramm_editor="true"></textarea>
+                                <button type="submit" id="btncomment">Gửi nhận xét</button>
+                            </form>
+                        <% } %>
+                        <br>
+                        <br>
+                        <div>
+                            <h3> Nhận xét của khách hàng </h3>
+                        </div>
+                        <hr>
+                        <div> Không tìm thấy nhận xét nào cho sản phẩm này </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <% include ./partials/footer.ejs %>
+        </footer>
+    </div>
+</body>
+
+</html>

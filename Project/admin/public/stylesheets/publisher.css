@@ -1,0 +1,22 @@
+.brandinfo{
+  text-align: center;
+}
+
+.publiserlist{
+  padding: 10px;
+  margin-left: -10px;
+  margin-right: -10px;
+  background-color: white;
+  border-radius: 4px;
+}
+
+#myBtn{
+  margin: 20px auto;
+  padding: 10px;
+  width: 300px;
+  background: #F98A5F;
+  color: white;
+  border: none;
+  box-shadow: none;
+  display: block;
+}

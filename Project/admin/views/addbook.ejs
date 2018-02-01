@@ -1,0 +1,186 @@
+<!DOCTYPE <html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3/stylesheets/3/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0//stylesheets/font-awesome.min.css">
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/addbook.css" rel="stylesheet">
+    <link href="/stylesheets/sidebar.css" rel="stylesheet">
+    <link href="/stylesheets/breadcrumb.css" rel="stylesheet">
+    <link href="/stylesheets/inputmodal.css" rel="stylesheet">
+    <!--==================================================-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/javascripts/goback.js"></script>
+    <script src="/javascripts/selectcategory.js"></script>
+    <script src="/javascripts/importimg.js"></script>
+    <script src="/javascripts/inputmodal.js"></script>
+    <script src="/javascripts/lumino.glyphs.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="bower_components/dropzone/downloads/css/dropzone.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="wrapper" class="container-fluid">
+        <div class="row">
+            <% include ./partials/sidebar.ejs %>
+        </div>
+        <div id="container">
+            <div class="content col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2">
+                <div class="row">
+                    <ol class="breadcrumb">
+                        <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+                        <li class="active">Thêm sản phẩm</li>
+                    </ol>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Thêm sản phẩm</h1>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 bookimage">
+                    <form method="post" action="/img" class="dropzone" id="drop">
+                        <div class="fallback">
+                            <input name="file" type="file" multiple />
+                        </div>
+                    </form>
+                    <button id="submit-all">Submit all files</button>
+                    <!--form id="my-awesome-dropzone" action="/target" class="dropzone"></form-->
+                    <script src="/bower_components/dropzone/downloads/dropzone.js"></script>
+                    <script type="text/javascript">
+                        Dropzone.options.drop = {
+                            maxFiles: 1,
+                            maxFilesize: 2,
+                            autoProcessQueue: false,
+                            addRemoveLinks: true,
+                            acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
+                            init: function() {
+                                var self = this;
+                                // config
+                                self.options.addRemoveLinks = true;
+                                self.options.dictRemoveFile = "Delete";
+                                // On removing file
+                                self.on("removedfile", function(file) {
+                                    console.log(file);
+                                });
+                                //Over MaxFile
+                                this.on("maxfilesexceeded", function(file) {
+                                    alert("No more files please!");
+                                });
+                                //Upload button
+                                var submitButton = document.querySelector("#submit-all")
+                                drop = this;
+                                submitButton.addEventListener("click", function() {
+                                    drop.processQueue();
+                                });
+                                this.on("queuecomplete", function(file) {
+                                    alert("All files have uploaded ");
+                                });
+                            }
+                        };
+                    </script>
+                </div>
+                <form id="productinput" name="productinput" action="/addbook" method="POST" class="col-md-8 col-sm-12">
+
+                    <label>Tên sách:</label>
+                    <input type="text" class="form-control" name="title" value="">
+                    <br>
+
+                    <label>Tác giả:</label>
+                    <input list="author" class="form-control" name="author">
+                    <datalist id="author">
+                            <option value="Julia Quinn">
+                            <option value="Lập Thệ Thành Yêu">
+                            <option value="Lục Xu">
+                            <option value="Phàn lạc">
+                            <option value="Guillaume Musso">
+                      </datalist>
+                    <br>
+
+                    <label for: "type">Thể loại:</label>
+                    <!--input list="type" class="form-control" name="type"-->
+                    <select id="type" class="form-control" name="type">
+                            <option value="Sách giáo khoa">Sách giáo khoa</option>
+                            <option value="Sách tham khảo">Sách tham khảo</option>
+                            <option value="Văn học trong nước">Văn học trong nước</option>
+                            <option value="Văn học nước ngoài">Văn học nước ngoài</option>
+                            <option value="Truyện tranh">Truyện tranh</option>
+                            <option value="Sách học ngoại ngữ">Sách học ngoại ngữ</option>
+                            <option value="Sách thiếu nhi">Sách thiếu nhi</option>
+                            <option value="Sách kỹ năng sống">Sách kỹ năng sống</option>
+                      </select>
+                    <br>
+
+                    <label for: "category">Chi tiết thể loại:</label>
+                    <input list="category" class="form-control" name="category">
+                    <!--select id="category">
+                            <option value="Lớp 1">-- Chọn một -- </option>
+                            <option value="Lớp 2">-- Chọn một -- </option>
+                    </select-->
+                    <br>
+
+                    <label>Đơn vị phát hành:</label>
+                    <input list="publisher" class="form-control" name="publisher">
+                    <datalist id="publisher">
+                            <option value="Nhã Nam">
+                            <option value="Owl Book">
+                            <option value="Amak">
+                            <option value="Bách Việt">
+                            <option value="Alphabooks">
+                </datalist>
+                    <br>
+
+                    <label>Nhà xuất bản:</label>
+                    <input type="text" class="form-control" name="publishing_company" value="">
+                    <br>
+
+                    <label>Ngày phát hành:</label>
+                    <input type="date" class="form-control" name="release_date" min="2000-01-02">
+                    <br>
+
+                    <label>Kích thước: (N x N cm)</label>
+                    <input type="text" class="form-control" name="size" value="">
+                    <br>
+                    <label>Số lượng:</label>
+                    <input type="number" name="quantity" class="form-control" min="1" max="1000">
+                    <br>
+                    <label>Số trang:</label>
+                    <input type="number" name="numberpage" class="form-control" min="10" max="1000">
+                    <br>
+                    <label>Cân nặng:</label>
+                    <input type="number" name="weight" class="form-control" min="10" max="1000">
+                    <br>
+
+                    <label>Giá bìa:</label>
+                    <input type="number" name="oldprice" class="form-control" min="1000" max="1000000">
+                    <br>
+                    <label>Giảm giá:</label>
+                    <input type="number" name="discount" class="form-control" min="0" max="100">
+                    <br>
+                    <label>Tóm tắt:</label>
+                    <textarea class="form-control" id="productnote" name="summary" rows="5" cols="60" style="vertical-align: top;">Không có ghi chú</textarea>
+
+                    <br>
+                    <label>Mô tả chi tiết:</label>
+                    <textarea class="form-control" id="productnote" name="description" rows="5" cols="60" style="vertical-align: top;">Không có ghi chú</textarea>
+
+                    <br>
+                    <button type="submit" id="cancelbtn" onclick="goBack()">Hủy</button>
+                    <input type="submit" id="addproductbtn" value="Thêm">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

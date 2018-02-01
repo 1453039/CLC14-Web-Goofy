@@ -1,0 +1,56 @@
+
+label{
+  float: left;
+  width: 200px;
+}
+
+form > br
+{   content: "A" !important;
+    display: block !important;
+    margin-bottom: 1.5em !important;
+}
+
+
+#productpic{
+  margin: auto;
+  display: block;
+  border: 1px solid;
+  border-color: #ccc;
+}
+
+#cancelbtn, #myBtn, #addproductbtn{
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#addproductbtn{
+  display: inline-block;
+  background-color: #F98A5F;
+  color: white;
+}
+
+#myBtn{
+  margin: 20px auto;
+  background-color: #F98A5F;
+  color: white;
+  display: block;
+  box-shadow: none;
+  width: 100px;
+}
+
+input#myBtn:hover, #addproductbtn:hover, #cancelbtn:hover{
+
+}
+
+@media (min-width: 767px){
+  form#productinput > input {
+    width: 450px;
+  }
+  form#productinput > input[type='submit'], form#productinput > button, input#myBtn {
+    width: 100px;
+    height: 2.5em;
+  }
+}

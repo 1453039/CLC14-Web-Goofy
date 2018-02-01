@@ -1,0 +1,18 @@
+#memberava{
+  text-align: center;
+  margin: auto;
+}
+
+#order-table td, #order-table th{
+	text-align:  center;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+h3.order-table-title{
+  margin: auto;
+}
+
+a.memberdetail{
+	color: green;
+}

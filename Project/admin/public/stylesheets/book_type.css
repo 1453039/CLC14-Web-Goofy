@@ -1,0 +1,10 @@
+#main-wrapper {
+float:left;
+width:620px;
+/*.... more attributes ... */
+}
+#sidebar-wrapper {
+float:right;
+width:300px;
+/*.... more attributes ... */
+}

@@ -1,0 +1,105 @@
+            <div id="top-header">
+                <div class="container">
+                    <div class="header_bootm">
+                        <div class="col-sm-3 span_1">
+                            <div class="logo">
+                                <a href="#"><img src="./images/logo.png" id="logo" alt="" width="209px" height="80px" /></a>
+                            </div>
+                        </div>
+                        <div class="col-sm-9 row_2">
+                            <div class="header_bottom_right">
+                                <div class="search col-sm-4">
+                                    <form id="search" action="/search" method="post">
+                                        <input type="search" name="search" required="required" placeholder="Tìm kiếm sách" onfocus="this.placeholder = '';" onblur="if (this.placeholder == '') {this.placeholder = 'Tìm kiếm sách';}">
+                                        <input type="submit" value="">
+                                    </form>
+                                </div>
+                                <ul id="menu-right">
+                                    <li class="acc drop-down">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></button>
+                                        <% if (!session.email) { %>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <p class="dropdown-header"> Tài khoản </p>
+                                            <div class="divider"></div>
+                                            <a class="dropdown-item" href="/login">
+                                                <div class="button-login">Đăng nhập</div>
+                                            </a>
+                                            <a class="dropdown-item" href="/register">
+                                                <div class="button-reg">Đăng ký</div>
+                                            </a>
+                                        </div>
+                                        <% } else { %>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <p class="dropdown-header"> <%= session.name %> </p>
+                                            <div class="divider"></div>
+                                            <a class="dropdown-item" href="/users/user_detail">
+                                                <div class="manage">Quản lí tài khoản</div>
+                                            </a>
+                                            <a class="dropdown-item" href="/order">
+                                                <div class="order">Đơn hàng của tôi</div>
+                                            </a>
+                                            <a class="dropdown-item" href="/">
+                                                <div class="like">Sách yêu thích</div>
+                                            </a>
+                                            <a class="dropdown-item" href="/logout">
+                                                <div class="button-reg">Đăng xuất</div>
+                                            </a>
+                                        </div>
+                                        <% } %>
+                                        <div class="clearfix"> </div>
+                                    </li>
+                                    <li class="bag drop-down">
+                                        <button class="btn bag_left btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        <% if (session.cart.totalQty) { %>
+                                        <div id="bag-text"> <%= session.cart.totalPrice.toLocaleString('en-US', {minimumIntegerDigits: 3}) %> ₫ (<%= session.cart.totalQty %>) </div>
+                                        <% } else { %>
+                                        <div id="bag-text"> 0 ₫ (0) </div>
+                                        <% } %>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <p class="dropdown-header "> Giỏ hàng </p>
+                                            <div class="divider "></div>
+                                            <% items.forEach(function(book) { %>
+                                            <a class="dropdown-item book-item" href="/book_detail/<%= book.item._id %>">
+                                                <div class="detail">
+                                                    <img src="<%= book.item.imagepathsmall %>" alt="">
+                                                    <ul>
+                                                        <li><%= book.item.title %></li>
+                                                        <li><%= book.item.newprice.toLocaleString('en-US', {minimumIntegerDigits: 3}) %> ₫ </li>
+                                                    </ul>
+                                                </div>
+                                                <div style="float: right; padding-top: 15px; padding-right: 15px;"><a href="/delete/<%= book.item._id %>" class="delete"> <i class="fa fa-times-circle"></i></a></div>
+                                            </a>
+                                            <% }) %>
+                                            <div class="divider "></div>
+                                            <p id="Tong"> Tổng tiền: <strong> <%= session.cart.totalPrice.toLocaleString('en-US', {minimumIntegerDigits: 3}) %> ₫ </strong></p>
+                                            <a class="button-bag" style="vertical-align:middle" href="/cart"><span>XEM GIỎ HÀNG</span></a>
+                                        </div>
+                                        <div class="clearfix "> </div>
+                                    </li>
+                                </ul>
+                                <div class="clearfix "> </div>
+                            </div>
+                        </div>
+                        <div class="clearfix "></div>
+                    </div>
+                </div>
+            </div>
+            <div id="bot-header">
+                <div class="container">
+                    <div class="header_top ">
+                        <div class="col-sm-9 h_menu4 ">
+                            <div id="category-header">
+                                <i class="fa fa-bars"></i>
+                                <p> DANH MỤC SÁCH </p>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div id="hotline">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <strong> Hotline: 0123.3456.789 </strong>
+                        </div>
+                        <div class="clearfix "> </div>
+                    </div>
+                </div>
+            </div>

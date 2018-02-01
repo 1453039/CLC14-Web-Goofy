@@ -1,0 +1,157 @@
+<!DOCTYPE <html>
+<html>
+
+<head>
+    <title>G4-Goofy</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="/images/favicon.ico" rel="shortcut icon">
+
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/stylesheets/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/stylesheets/style_confirm_checkout.css" rel="stylesheet" media="screen">
+    <link href="/stylesheets/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/javascripts/script-confirm.js"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+           <% include ./partials/header-other.ejs %>
+        </header>
+        <div class="container">
+            <div class="col-sm-8">
+                <div class="header-address">
+                    <h3>Hình thức thanh toán</h3>
+                </div>
+                <div class="address-content">
+                    <form id="confirm_checkout" action="/cart/checkout/thank" method="post" >
+                        <input type="radio" id="radio1" name="radioGroup" value="1" checked="true"> Thanh toán tiền mặt khi nhận hàng<br><br>
+                        <input type="radio" id="radio2" name="radioGroup" value="2"> Thanh toán trực tuyến bằng Paypal<br><br>
+                        <input type="radio" id="radio3" name="radioGroup" value="3"> Chuyển khoản ngân hàng<br>
+                        <div id="infor" style="display: none;">
+                            <p>Tài khoản Đông Á: 0156937520 - Chủ tài khoản: Trần Công Quyền – CN Đông Sài Gòn
+                            <br><br>Tài khoản Agribank : 6245205309103 - Chủ tài khoản: Trần Công Quyền – CN Đông Sài Gòn
+                            <br><br>Tài khoản Vietcombank: 2971000285887 - Chủ tài khoản: Trần Công Quyền – CN Đông Sài Gòn
+                            <br><br>Tài khoản ACB: 4214945841107781 - Chủ tài khoản: Trần Công Quyền - CN Hội Sở </p>                            
+                        </div>
+                        <br><br>
+                        <div id="continue">
+                            <button type="submit">Đặt mua</button>
+                        </div>
+                    </form>                                      
+                </div>
+                <br>
+                <p>Lưu ý: Sau khi chuyển khoản, quý khách vui lòng thông báo qua điện thoại hoặc email để Goofy tiện kiểm tra và xử lý đơn hàng.
+                <br><br>              
+                <h4>Bạn cần hỗ trợ? Gọi HotLine: <strong>0123 456 7890</strong> - Email: <strong>info@goofy.vn</strong></p></h4>
+            </div>
+            <div class="col-sm-4" id="order">
+                <table>
+                    <tr>
+                        <td class="left">
+                            <strong>Địa chỉ giao hàng</strong>
+                        </td>
+
+                        <td class="right">
+                            <a href="/cart/address">Sửa</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td claa="left" colspan="2">
+                            <%= addr.name %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td claa="left" colspan="2">
+                            <%= addr.street %>, <%= addr.subdistrict %>, <%= addr.district %>, <%= addr.province %> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td claa="left" colspan="2">
+                           <%= addr.telephone %>
+                        </td>
+                    </tr>
+                </table>
+
+                <br>
+
+                <table>
+                    <tr>
+                        <td class="left">
+                            <strong>Đơn hàng</strong> <small>(<%= session.cart.totalQty %> sản phẩm)</small>
+                        </td>
+
+                        <td class="right">
+                            <a href="/cart">Sửa</a>
+                        </td>
+                    </tr>
+                    <% items.forEach(function(element){ %>
+                    <tr>
+                        <td claa="left">
+                            <%= element.qty %> x <%= element.item.title %>
+                        </td>
+
+                        <td class="right">
+                            <%= element.item.newprice * element.qty %>
+                        </td>
+                    </tr>   
+                    <% }) %>     
+                    <tr>
+                        <td claa="left">
+                            Tạm tính
+                        </td>
+
+                        <td class="right">
+                            <%= session.cart.totalPrice %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td claa="left">
+                            Phí vận chuyển
+                        </td>
+                        <% if ( session.cart.totalPrice > 250000){ %>
+                        <td class="right">
+                            Miễn phí
+                        </td>
+                        <% } else { %>
+                        <td class="right">
+                            <%= session.cart.totalPrice * 0.1 %>
+                        </td>
+                        <% } %>
+                    </tr>
+                    <tr>
+                        <td claa="left">
+                            <h4><strong>TỔNG TIỀN</strong></h4>
+                        </td>
+                        <% if ( session.cart.totalPrice > 250000){ %>
+                        <td class="right">
+                            <h4><strong><%= session.cart.totalPrice %></strong></h4>
+                        </td>
+                        <% } else { %>
+                        <td class="right">
+                            <h4><strong><%= session.cart.totalPrice + (session.cart.totalPrice * 0.1) %></strong></h4>
+                        </td>
+                        <% } %>
+                        
+                    </tr>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <footer>
+       <% include ./partials/footer.ejs %>
+    </footer>
+    </div>
+</body>
+
+</html>

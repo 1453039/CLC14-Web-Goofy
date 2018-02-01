@@ -1,0 +1,290 @@
+<!DOCTYPE <html>
+<html>
+
+<head>
+    <title>G4-Goofy</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="imgages/favicon.ico" rel="shortcut icon">
+
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="stylesheets/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="stylesheets/style.css" rel="stylesheet" media="screen">
+    <link href="stylesheets/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="stylesheets/lightslider.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js "></script>
+    <script src="javascripts/bootstrap.min.js "></script>
+    <script src="javascripts/script-index.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js "></script>
+    <script src="javascripts/lightslider.js"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <% include ./partials/header-index.ejs %>
+        </header>
+
+        <div class="container">
+            <div id="sidebar" class="col-sm-3">
+                <!-- Categories -->
+                <div class="box categories">
+                    <div class="box-content" id="menu">
+                        <ul>
+                            <li class="dropdown">
+                                <a class="dropbtn" href="sach_ban_chay.htm">Sách bán chạy</a>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropbtn" href="sach_moi.htm">Sách mới</a>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropbtn" href="sach_giam_gia.htm">Sách giảm giá</a>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropbtn" href="/book_type/1"><span>Sách giáo khoa</span></a>
+                                <ul class="dropdown-content" id="gk">
+                                    <li><a href="/book_type/1/1">Lớp 1</a></li>
+                                    <li><a href="/book_type/1/2">Lớp 2</a></li>
+                                    <li><a href="/book_type/1/3">Lớp 3</a></li>
+                                    <li><a href="/book_type/1/4">Lớp 4</a></li>
+                                    <li><a href="/book_type/1/5">Lớp 5</a></li>
+                                    <li><a href="/book_type/1/6">Lớp 6</a></li>
+                                    <li><a href="/book_type/1/7">Lớp 7</a></li>
+                                    <li><a href="/book_type/1/8">Lớp 8</a></li>
+                                    <li><a href="/book_type/1/9">Lớp 9</a></li>
+                                    <li><a href="/book_type/1/10">Lớp 10</a></li>
+                                    <li><a href="/book_type/1/11">Lớp 11</a></li>
+                                    <li><a href="/book_type/1/12">Lớp 12</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropbtn" href="/book_type/2"><span>Sách tham khảo</span></a>
+                                <ul class="dropdown-content" id="tk">
+                                    <li><a href="/book_type/2/1">Lớp 1</a></li>
+                                    <li><a href="/book_type/2/2">Lớp 2</a></li>
+                                    <li><a href="/book_type/2/3">Lớp 3</a></li>
+                                    <li><a href="/book_type/2/4">Lớp 4</a></li>
+                                    <li><a href="/book_type/2/5">Lớp 5</a></li>
+                                    <li><a href="/book_type/2/6">Lớp 6</a></li>
+                                    <li><a href="/book_type/2/7">Lớp 7</a></li>
+                                    <li><a href="/book_type/2/8">Lớp 8</a></li>
+                                    <li><a href="/book_type/2/9">Lớp 9</a></li>
+                                    <li><a href="/book_type/2/10">Lớp 10</a></li>
+                                    <li><a href="/book_type/2/11">Lớp 11</a></li>
+                                    <li><a href="/book_type/2/12">Lớp 12</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropbtn" href="/book_type/3"><span>Văn học trong nước</span></a>
+                                <ul class="dropdown-content" id="vhtn">
+                                    <li><a href="/book_type/3/1">Tiểu thuyết</a></li>
+                                    <li><a href="/book_type/3/2">Truyện ngắn - Tản văn</a></li>
+                                    <li><a href="/book_type/3/3">Huyền bí - Giả tưởng</a></li>
+                                    <li><a href="/book_type/3/4">Phóng sự - Ký sự</a></li>
+                                    <li><a href="/book_type/3/5">Trinh thám - Kinh dị</a></li>
+                                    <li><a href="/book_type/3/6">Tiểu sử - Hồi ký</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropbtn" href="/book_type/4"><span>Văn học nước ngoài</span></a>
+                                <ul class="dropdown-content" id="vhnn">
+                                    <li><a href="/book_type/4/1">Tiểu sử - Hồi ký</a></li>
+                                    <li><a href="/book_type/4/2">Truyện lịch sử - Kiếm hiệp</a></li>
+                                    <li><a href="/book_type/4/3">Truyện ngắn - Tản văn</a></li>
+                                    <li><a href="/book_type/4/4">Tác phẩm kinh điển</a></li>
+                                    <li><a href="/book_type/4/5">Huyền bí - Giả tưởng</a></li>
+                                    <li><a href="/book_type/4/6">Trinh thám - Kinh dị</a></li>
+                                    <li><a href="/book_type/4/7">Tiểu thuyết tình cảm - Lãng mạn</a></li>
+                                    <li><a href="/book_type/4/8">Tiểu thuyết đam mỹ</a></li>
+                                    <li><a href="/book_type/4/9">Bách hợp</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropbtn" href="/book_type/5"><span>Truyện tranh</span></a>
+                                <ul class="dropdown-content" id="tt">
+                                    <li><a href="/book_type/5/1">Truyện tranh Nhật Bản</a></li>
+                                    <li><a href="/book_type/5/2">Truyện tranh Hàn Quốc</a></li>
+                                    <li><a href="/book_type/5/3">Truyện tranh Trung Quốc</a></li>
+                                    <li><a href="/book_type/5/4">Truyện tranh phương Tây</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropbtn" href="/book_type/6"><span>Sách học ngoại ngữ</span></a>
+                                <ul class="dropdown-content" id="nn">
+                                    <li><a href="/book_type/6/1">Từ điển</a></li>
+                                    <li><a href="/book_type/6/2">Sách học tiếng Anh</a></li>
+                                    <li><a href="/book_type/6/3">Sách học tiếng Hoa</a></li>
+                                    <li><a href="/book_type/6/4">Sách học tiếng Nhật</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropbtn" href="/book_type/7"><span>Sách thiếu nhi</span></a>
+                                <ul class="dropdown-content" id="stn">
+                                    <li><a href="/book_type/7/1">Truyện cổ tích - Thần thoại</a></li>
+                                    <li><a href="/book_type/7/2">Vừa học vừa chơi</a></li>
+                                    <li><a href="/book_type/7/3">Kiến thức - Kỹ năng</a></li>
+                                    <li><a href="/book_type/7/4">Văn học</a></li>
+                                    <li><a href="/book_type/7/5">Truyện kể bé nghe</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropbtn" href="/book_type/8"><span>Sách kỹ năng sống</span></a>
+                                <ul class="dropdown-content" id="kns">
+                                    <li><a href="/book_type/8/1">Kỹ năng sống</a></li>
+                                    <li><a href="/book_type/8/2">Nghệ thuật sống đẹp</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropbtn" href="nha_phat_hanh.htm"><span>Nhà phát hành</span></a>
+                                <ul class="dropdown-content" id="nph">
+                                    <li><a href="chi_tiet_nph.htm">Phương Nam</a></li>
+                                    <li><a href="chi_tiet_nph.htm">Văn Lang</a></li>
+                                    <li><a href="chi_tiet_nph.htm">NXB Trẻ</a></li>
+                                    <li><a href="chi_tiet_nph.htm">Thái Hà</a></li>
+                                    <li><a href="chi_tiet_nph.htm">Bách Việt</a></li>
+                                    <li><a href="chi_tiet_nph.htm">Nhã Nam</a></li>
+                                    <li><a href="chi_tiet_nph.htm">Alphabooks</a></li>
+                                    <li><a href="chi_tiet_nph.htm">NXB Kim Đồng</a></li>
+                                    <li><a href="chi_tiet_nph.htm">Đông A</a></li>
+                                    <li><a href="chi_tiet_nph.htm">Người Trẻ Việt</a></li>
+                                    <li><a href="chi_tiet_nph.htm">Skybooks</a></li>
+                                    <li><a href="nha_phat_hanh.htm"><b>Tất cả nhà phát hành</b></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div id="mainbanner">
+                    <div class="item">                        
+                        <ul id="content-slider" class="content-slider">
+                        <% banners.forEach(function(banner){%>
+                            <li>
+                                <a href="/book_detail/<%= banner.bookid%>"> <img src="<%= banner.imagepath%>"> </a>
+                            </li>
+                        <% }); %>                 
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="newbookslider">
+            <div class="titlebook">
+                <h3>Sách mới</h3>
+                <h5><a href="sach_moi.htm">Xem tất cả >></a></h5>
+            </div>
+            <hr>
+            <div class="bookslide">
+                <div class="item">
+                    <ul id="new-book-slider" class="content-slider">
+                        <% books.forEach(function(book) { %>
+                        <li>
+                            <div class="side-corner-tag">
+                                <a href="/book_detail/<%=book.id%>"><img src="<%= book.imagepathmedium %>"></a>
+                                <% if (book.discount > 0) { %>
+                                <div class="discount-label yellow"><span>-<%=book.discount%>%</span></div>
+                                <% } %>
+                            </div>
+                            <div class="slide-copy">
+                                <br/>
+                                <h5><a href="/book_detail/<%=book.id%>"><%= book.title %></a></h5>
+                                <h6><a href=""><%= book.author %></a></h6>   
+                                <h4><strong><%= book.newprice.toLocaleString('en-US', {minimumIntegerDigits: 3}) %> ₫</strong></h4>
+                                <% if (book.discount > 0) { %>
+                                <h5><strike><%= book.oldprice.toLocaleString('en-US', {minimumIntegerDigits: 3}) %> ₫</strike></h5>
+                                <% } %>
+                                <a href="/add-to-cart/<%= book.id %>" class="add">THÊM VÀO GIỎ</a>
+                            </div>
+                        </li>
+                        <% }) %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="container" id="bestbookslider">
+            <div class="titlebook">
+                <h3>Sách bán chạy</h3>
+                <h5><a href="sach_ban_chay.htm">Xem tất cả >></a></h5>
+            </div>
+            <hr>
+            <div class="bookslide">
+                <div class="item">
+                    <ul id="best-book-slider" class="content-slider">
+                        <% books.forEach(function(book) { %>
+                        <li>
+                            <div class="side-corner-tag">
+                                <a href="/book_detail/<%=book.id%>"><img src="<%= book.imagepathmedium %>"></a>
+                                <% if (book.discount > 0) { %>
+                                <div class="discount-label yellow"><span>-<%=book.discount%>%</span></div>
+                                <% } %>
+                            </div>
+                            <div class="slide-copy">
+                                <br/>
+                                <h5><a href="/book_detail/<%=book.id%>"><%= book.title %></a></h5>
+                                <h6><a href=""><%= book.author %></a></h6>                               
+                                <h4><strong><%= book.newprice %> ₫</strong></h4>
+                                <% if (book.discount > 0) { %>
+                                <h5><strike><%= book.oldprice %> ₫</strike></h5>
+                                <% } %>
+                                <a href="/add-to-cart/<%= book.id %>" class="add">THÊM VÀO GIỎ</a>
+                            </div>
+                        </li>
+                        <% }) %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="container" id="bestbookslider">
+            <div class="titlebook">
+                <h3>Sách giảm giá</h3>
+                <h5><a href="sach_giam_gia.htm">Xem tất cả >></a></h5>
+            </div>
+            <hr>
+            <div class="bookslide">
+                <div class="item">
+                    <ul id="sale-book-slider" class="content-slider">
+                        <% books.forEach(function(book) { %>
+                        <li>
+                         <% if (book.discount > 0) { %>
+                            <div class="side-corner-tag">
+                                <a href="/book_detail/<%=book.id%>"><img src="<%= book.imagepathmedium %>"></a>                                
+                                <div class="discount-label yellow"><span>-<%=book.discount%>%</span></div>                               
+                            </div>
+                            <div class="slide-copy">
+                                <br/>
+                                <h5><a href="/book_detail/<%=book.id%>"><%= book.title %></a></h5>
+                                <h6><a href=""><%= book.author %></a></h6>   
+                                <h4><strong><%= book.newprice %> ₫</strong></h4>                               
+                                <h5><strike><%= book.oldprice %> ₫</strike></h5>                              
+                                <a href="/add-to-cart/<%= book.id %>" class="add">THÊM VÀO GIỎ</a>
+                            </div>
+                        <% } %>
+                        </li>                               
+                        <% }) %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <footer>
+            <% include ./partials/footer.ejs %>
+        </footer>
+    </div>
+</body>
+
+</html>

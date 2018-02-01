@@ -1,0 +1,127 @@
+<!DOCTYPE <html>
+<html>
+
+<head>
+  <title>
+      <%= title %>
+  </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3/stylesheets/3/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0//stylesheets/font-awesome.min.css">
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/addbook.css" rel="stylesheet">
+    <link href="/stylesheets/updatebook.css" rel="stylesheet">
+    <link href="/stylesheets/sidebar.css" rel="stylesheet">
+    <link href="/stylesheets/breadcrumb.css" rel="stylesheet">
+    <link href="/stylesheets/inputmodal.css" rel="stylesheet">
+    <!--==================================================-->
+    <script src="/javascripts/goback.js"></script>
+    <script src="/javascripts/inputmodal.js"></script>
+    <script src="/javascripts/lumino.glyphs.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div id="wrapper" class="container-fluid">
+      <div class="row">
+          <% include ./partials/sidebar.ejs %>
+
+      </div>
+        <div id="container">
+            <div class="content col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2">
+                <div class="row">
+                    <ol class="breadcrumb">
+                        <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+                        <li class="active">Chỉnh sửa thông tin sản phẩm</li>
+                    </ol>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Chỉnh sửa thông tin sản phẩm</h1>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 bookimage">
+                    <img id="productpic" class="img-responsive" src="img/book1.jpg"><br>
+                    <input type="submit" id="myBtn" value="Chọn hình">
+                    <div id="myModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <form action="">
+                                Chọn ảnh: <input type="file" id="choosefilebtn" name="img" required>
+                                <button type="submit" id="cancelbtn">Hủy</button>
+                                <input type="submit" id="submitbtn" value="Đăng">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <form id="productinput" name="productinput" action="" method="POST" class="col-md-8 col-sm-12">
+
+                    <label>Tên sách:</label>
+                    <input type="text" class="form-control" name="bookname" value="">
+                    <br>
+
+                    <label>Tác giả:</label>
+                    <input list="author" class="form-control" name="author">
+                    <datalist id="author">
+                            <option value="Julia Quinn">
+                            <option value="Lập Thệ Thành Yêu">
+                            <option value="Lục Xu">
+                            <option value="Phàn lạc">
+                            <option value="Guillaume Musso">
+                      </datalist>
+                    <br>
+
+                    <label>Đơn vị phát hành:</label>
+                    <input list="publisher" class="form-control" name="publisher">
+                    <datalist id="publisher">
+                            <option value="Nhã Nam">
+                            <option value="Owl Book">
+                            <option value="Amak">
+                            <option value="Bách Việt">
+                            <option value="Alphabooks">
+                      </datalist>
+                    <br>
+
+                    <label>Ngày phát hành:</label>
+                    <input type="date" class="form-control" name="publishday" min="2000-01-02">
+                    <br>
+
+                    <label>Thể loại:</label>
+                    <input list="category" class="form-control" name="category">
+                    <datalist id="category">
+                            <option value="Sách giáo khoa">
+                            <option value="Văn học trong nước">
+                            <option value="Văn học nước ngoài">
+                            <option value="Truyện tranh">
+                            <option value="Sách học ngoại ngữ">
+                      </datalist>
+                    <br>
+                    <label>Số lượng:</label>
+                    <input type="number" name="quantity" class="form-control" min="1" max="1000">
+                    <br>
+                    <label>Giá bìa:</label>
+                    <input type="number" name="quantity" class="form-control" min="1000" max="1000000">
+                    <br>
+                    <label>Giá bán hiện tại:</label>
+                    <input type="number" name="quantity" class="form-control" min="1000" max="1000000">
+                    <br>
+                    <label>Ghi chú:</label>
+                    <textarea class="form-control" id="productnote" name="message" rows="5" cols="60" style="vertical-align: top;">Không có ghi chú</textarea>
+
+                    <br>
+                    <button type="submit" id="cancelbtn" onclick="goBack()">Hủy</button>
+                    <input type="submit" id="updateproductbtn" value="Cập nhật">
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

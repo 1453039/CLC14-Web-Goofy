@@ -1,0 +1,9 @@
+#order-table td, #order-table th{
+	text-align:  center;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+a.orderdetail{
+	color: green;
+}

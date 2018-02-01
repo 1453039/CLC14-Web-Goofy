@@ -1,0 +1,245 @@
+<!DOCTYPE <html>
+<html>
+
+<head>
+    <title>G4-Goofy</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/sidebar.css" rel="stylesheet">
+    <link href="css/datepicker3.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="css/breadcrumb.css" rel="stylesheet">
+    <script src="script/lumino.glyphs.js"></script>
+</head>
+
+<body>
+    <div id="wrapper" class="container-fluid">
+        <div class="row">
+            <div class="nav-side-menu col-md-3">
+                <div class="brand">
+                    <img src="/images/admin_icon.jpg" style="margin-top: 5px; width: 100px; height: 100px;">
+                    <p id="helloadmin" align="center">Xin chào Admin</p>
+                </div>
+                <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+                <div class="menu-list">
+
+                    <ul id="menu-content" class="menu-content collapse out">
+                        <li class=" active">
+                            <a href="#">
+                                <i class="fa fa-dashboard fa-lg"></i> Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="donhang.htm">
+                                <i class="fa fa-shopping-cart  fa-lg"></i> Đơn hàng
+                            </a>
+                        </li>
+                        <li>
+                            <a href="thanhvien.htm">
+                                <i class="fa fa-user fa-lg"></i> Thành viên
+                            </a>
+                        </li>
+                        <li data-toggle="collapse" data-target="#book-type" class="collapsed">
+                            <a href="#"><i class="fa fa-book fa-lg"></i> Danh mục sách <span class="arrow"></span></a>
+                        </li>
+                        <ul class="sub-menu collapse" id="book-type">
+                            <li><a href="sachgiaokhoa.htm">Sách giáo khoa</a></li>
+                            <li><a href="#">Sách tham khảo</a></li>
+                            <li><a href="#">Văn học trong nước</a></li>
+                            <li><a href="#">Văn học nước ngoài</a></li>
+                            <li><a href="#">Truyện tranh</a></li>
+                            <li><a href="#">Sách học ngoại ngữ</a></li>
+                            <li><a href="#">Sách thiếu nhi</a></li>
+                            <li><a href="#">Sách kỹ năng sống</a></li>
+                            <li><a href="#">Nhà phát hành</a></li>
+                        </ul>
+                        <li>
+                            <a href="bannerquangcao.htm">
+                                <i class="fa fa-picture-o fa-lg"></i> Banner quảng cáo
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.htm">
+                                <i class="fa fa-sign-out fa-lg"></i> Log out
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="container">
+                <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+                    <div class="row">
+                        <ol class="breadcrumb">
+                            <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+                            <li class="active">Dashboard</li>
+                        </ol>
+                    </div>
+                    <!--/.row-->
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">Dashboard</h1>
+                        </div>
+                    </div>
+                    <!--/.row-->
+
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6 col-lg-3">
+                            <div class="panel panel-blue panel-widget ">
+                                <div class="row no-padding">
+                                    <div class="col-sm-3 col-lg-5 widget-left">
+                                        <svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>
+                                    </div>
+                                    <div class="col-sm-9 col-lg-7 widget-right">
+                                        <div class="large">120</div>
+                                        <div class="text-muted">Đơn hàng mới</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 col-lg-3">
+                            <div class="panel panel-orange panel-widget">
+                                <div class="row no-padding">
+                                    <div class="col-sm-3 col-lg-5 widget-left">
+                                        <svg class="glyph stroked empty-message"><use xlink:href="#stroked-empty-message"></use></svg>
+                                    </div>
+                                    <div class="col-sm-9 col-lg-7 widget-right">
+                                        <div class="large">52</div>
+                                        <div class="text-muted">Bình luận</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 col-lg-3">
+                            <div class="panel panel-teal panel-widget">
+                                <div class="row no-padding">
+                                    <div class="col-sm-3 col-lg-5 widget-left">
+                                        <svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg>
+                                    </div>
+                                    <div class="col-sm-9 col-lg-7 widget-right">
+                                        <div class="large">24</div>
+                                        <div class="text-muted">Thành viên mới</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 col-lg-3">
+                            <div class="panel panel-red panel-widget">
+                                <div class="row no-padding">
+                                    <div class="col-sm-3 col-lg-5 widget-left">
+                                        <svg class="glyph stroked app-window-with-content"><use xlink:href="#stroked-app-window-with-content"></use></svg>
+                                    </div>
+                                    <div class="col-sm-9 col-lg-7 widget-right">
+                                        <div class="large">25.2k</div>
+                                        <div class="text-muted">Lượt xem</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.row-->
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Lượng nhập và tiêu thụ theo tháng</div>
+                                <div class="panel-body">
+                                    <div class="canvas-wrapper">
+                                        <canvas class="main-chart" id="line-chart" height="200" width="600"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.row-->
+
+                    <div class="row">
+                        <div class="col-xs-6 col-md-3">
+                            <!-- Info Boxes Style 2 -->
+                            <div class="info-box">
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Lượt xem hôm nay</span>
+                                    <span class="info-box-number">5,200K</span>
+
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 50%"></div>
+                                    </div>
+                                    <span class="progress-description">
+                                      Tăng 50% trong tháng
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-3">
+                            <!-- /.info-box -->
+                            <div class="info-box">
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Lượt sale hôm nay</span>
+                                    <span class="info-box-number">925</span>
+
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 20%"></div>
+                                    </div>
+                                    <span class="progress-description">
+                                      Tăng 20% trong tháng
+                                    </span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-3">
+                            <!-- /.info-box -->
+                            <div class="info-box">
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Lượng đánh gí hôm nay</span>
+                                    <span class="info-box-number">111</span>
+
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 70%"></div>
+                                    </div>
+                                    <span class="progress-description">
+                                      Tăng 70% trong tháng</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-3">
+                            <div class="info-box">
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Doanh thu trong ngày</span>
+                                    <span class="info-box-number">3,921K</span>
+
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 40%"></div>
+                                    </div>
+                                    <span class="progress-description">
+                                      Tăng 40% Trong tháng
+                                    </span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--==================================================-->
+
+            <script src="script/jquery-1.11.1.min.js"></script>
+            <script src="script/chart.min.js"></script>
+            <script src="script/chart-data.js"></script>
+            <script src="script/bootstrap-datepicker.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+            <script src="script/bootstrap.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>

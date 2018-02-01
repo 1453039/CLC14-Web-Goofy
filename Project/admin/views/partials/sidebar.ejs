@@ -1,0 +1,54 @@
+<div class="nav-side-menu col-md-3">
+    <div class="brand">
+        <img src="/images/admin_icon.jpg" style="margin-top: 5px; width: 100px; height: 100px;">
+        <p id="helloadmin" align="center">Xin chào Admin</p>
+    </div>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+    <div class="menu-list">
+
+        <ul id="menu-content" class="menu-content collapse out">
+            <li <% if (item == "dashboard") { %> class=" active" <% } %>>
+                <a href="/dashboard">
+                    <i class="fa fa-dashboard fa-lg"></i> Dashboard
+                </a>
+            </li>
+            <li<% if (item == "order" || item == "orderdetail") { %> class=" active" <% } %>>
+                <a href="/order">
+                    <i class="fa fa-shopping-cart  fa-lg"></i> Đơn hàng
+                </a>
+            </li>
+            <li<% if (item == "member" || item == "memberdetail") { %> class=" active" <% } %>>
+                <a href="/member">
+                    <i class="fa fa-user fa-lg"></i> Thành viên
+                </a>
+            </li>
+            <li data-toggle="collapse" data-target="#book-type" class="collapsed"
+            <% if (item == "sachgiaokhoa" || item =="sachthamkhao" || item =="vanhoctrongnuoc" || item =="vanhocnuocngoai" || item =="truyentranh" || item =="sachhocngoaingu"
+            || item =="sachthieunhi" || item =="sachkynangsong" || item =="publisher" || item =="addbook" || item =="updatebook") { %> class=" active" <% } %>>
+                <a href="#"><i class="fa fa-book fa-lg"></i> Danh mục sách <span class="arrow"></span></a>
+            </li>
+            <ul class="sub-menu collapse" id="book-type">
+                <li<% if (item == "sachgiaokhoa") { %> class=" active" <% } %>><a href="/booktype/sachgiaokhoa">Sách giáo khoa</a></li>
+                <li<% if (item == "sachthamkhao") { %> class=" active" <% } %>><a href="/booktype/sachthamkhao">Sách tham khảo</a></li>
+                <li<% if (item == "vanhoctrongnuoc") { %> class=" active" <% } %>><a href="/booktype/vanhoctrongnuoc">Văn học trong nước</a></li>
+                <li<% if (item == "vanhocnuocngoai") { %> class=" active" <% } %>><a href="/booktype/vanhocnuocngoai">Văn học nước ngoài</a></li>
+                <li<% if (item == "truyentranh") { %> class=" active" <% } %>><a href="/booktype/truyentranh">Truyện tranh</a></li>
+                <li<% if (item == "sachhocngoaingu") { %> class=" active" <% } %>><a href="/booktype/sachhocngoaingu">Sách học ngoại ngữ</a></li>
+                <li<% if (item == "sachthieunhi") { %> class=" active" <% } %>><a href="/booktype/sachthieunhi">Sách thiếu nhi</a></li>
+                <li<% if (item == "sachkynangsong") { %> class=" active" <% } %>><a href="/booktype/sachkynangsong">Sách kỹ năng sống</a></li>
+                <li<% if (item == "publisher") { %> class=" active" <% } %>><a href="/publisher">Nhà phát hành</a></li>
+            </ul>
+            <li<% if (item == "banner") { %> class=" active" <% } %>>
+                <a href="/banner">
+                    <i class="fa fa-picture-o fa-lg"></i> Banner quảng cáo
+                </a>
+            </li>
+            <li>
+                <a href="/logout">
+                    <i class="fa fa-sign-out fa-lg"></i> Log out
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,142 @@
+<!DOCTYPE <html>
+<html>
+
+<head>
+  <title>
+      <%= title %>
+  </title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/sidebar.css" rel="stylesheet">
+    <link href="/stylesheets/breadcrumb.css" rel="stylesheet">
+    <link href="/stylesheets/memberdetail.css" rel="stylesheet">
+    <script src="/javascripts/lumino.glyphs.js"></script>
+    <!--==================================================-->
+    <script src="/javascripts/goback.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div id="wrapper" class="container-fluid">
+        <div class="row">
+            <% include ./partials/sidebar.ejs %>
+        </div>
+        <div id="container">
+            <div class="content col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2">
+                <div class="row">
+                    <ol class="breadcrumb">
+                        <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+                        <li><a href="thanhvien.htm">Thành viên</a></li>
+                        <li class="active">Chi tiết thành viên</li>
+                    </ol>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Chi tiết thành viên</h1>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-12" id="memberava">
+                    <img class="img-responsive" src="img/admin_icon.jpg" style="border: solid 1px #ccc"><br>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-12">
+                    <div class="table-responsive">
+                        <table class="table panel" id="info-table" align="center">
+                            <thead>
+                                <th>Thông tin cơ bản</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Mã thành viên: 00001</td>
+                                </tr>
+                                <tr>
+                                    <td>Tên thành viên: Hang</td>
+                                </tr>
+                                <tr>
+                                    <td>Ngày sinh: 03/30/1996</td>
+                                </tr>
+                                <tr>
+                                    <td> Giới tính: Nữ </td>
+                                </tr>
+                                <tr>
+                                    <td>Email: 1453014@student.hcmus.edu.vn</td>
+                                </tr>
+                                <tr>
+                                    <td>Địa chỉ chính: 123/12 Đường Nguyễn Văn Cừ, Phường 1, Quận 5</td>
+                                </tr>
+                                <tr>
+                                    <td>Số điện thoại: 0977777777</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table panel" id="address-table" align="center">
+                            <h4><b>Sổ địa chỉ</b></h4>
+                            <thead>
+                                <th>#</th>
+                                <th>Chi tiết</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>123/12 Đường Nguyễn Văn Cừ, Phường 1, Quận 5</td>
+                                </tr <tr>
+                                <td>2</td>
+                                <td>123/12 Đường Lê Văn Thọ, Phường 1, Quận Gò Vấp</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <div class="table-responsive orderlist">
+                    <h3 id="order-table-title"><b>Đơn hàng</b></h3>
+                    <table class="table panel" id="order-table" align="center">
+                        <thead>
+                            <th>Mã đơn hàng</th>
+                            <th>Trạng thái</th>
+                            <th>Ngày đặt</th>
+                            <th>Tổng tiền</th>
+                            <th>Chi tiết</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Đã giao <i class="fa fa-check-circle-o fa-lg" aria-hidden="true"></i></td>
+                                <td>01/17/2017</td>
+                                <td>40000 VND</td>
+                                <td><a href="#" class="memberdetail"><i class="fa fa-arrow-right fa-lg" aria-hidden="true"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Đang giao <i class="fa fa-spinner fa-pulse fa-lg"></i></td>
+                                <td>01/17/2017</td>
+                                <td>10000 VND</td>
+                                <td><a href="#" class="memberdetail"><i class="fa fa-arrow-right fa-lg" aria-hidden="true"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Không nhận <i class="fa fa-times-circle-o fa-lg" aria-hidden="true"></i></td>
+                                <td>01/17/2017</td>
+                                <td>10000 VND</td>
+                                <td><a href="#" class="memberdetail"><i class="fa fa-arrow-right fa-lg" aria-hidden="true"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

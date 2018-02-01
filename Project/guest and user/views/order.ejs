@@ -1,0 +1,95 @@
+<!DOCTYPE <html>
+<html>
+
+<head>
+    <title>G4-Goofy</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="/images/favicon.ico" rel="shortcut icon">
+
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/stylesheets/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/stylesheets/style_order.css" rel="stylesheet" media="screen">
+    <link href="/stylesheets/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+             <% include ./partials/header-other.ejs %>
+        </header>
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="/">Trang chủ</a> <span class="divider"></span></li>
+                <li class="active">Đơn hàng của tôi</li>
+            </ul>
+            <div id="subcategory" class="col-sm-3">
+                <h4> TÀI KHOẢN CỦA BẠN </h4>
+                <ul class="class">
+                    <li><a href="/user/user_detail">Quản lý tài khoản</a></li>
+                    <li><a href="./thong_tin_tai_khoan.htm">Thông tin tài khoản</a></li>
+                    <li><a href="./so_dia_chi.htm">Sổ địa chỉ</a></li>
+                    <li><a href="/order" class="active">Đơn hàng của tôi</a></li>
+                    <li><a href="./sach_yeu_thich.htm">Danh sách yêu thích</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-9">
+                <div class="header-manage">
+                    <h3>Đơn hàng của tôi</h3>
+                </div>
+                <div class="my_order">
+                    <table>
+                        <tr>
+                            <th>
+                                <p><strong>Mã đơn hàng</strong></p>
+                            </th>
+                            <th>
+                                <p><strong>Ngày mua</strong></p>
+                            </th>                           
+                            <th>
+                                <p><strong>Tổng tiền</strong></p>
+                            </th>                            
+                            <th>
+
+                            </th>
+                        </tr>
+                        <% order.forEach(function(index){ %>
+                        <tr>
+                            <td>
+                                <a href="/order/<%= index._id %>" target="blank"><%= index._id %></a>
+                            </td>
+                            <td>
+                                <p><%= index.date_purchase.getDate() %>/<%= index.date_purchase.getMonth() + 1 %>/<%= index.date_purchase.getFullYear() %></p>
+                            </td>
+                            
+                            <td>
+                                <p style="color: orangered; text-align: right;"><strong><%= index.total %> đ</strong></p>
+                            </td>
+                           
+                            <td>
+                                <a href="/order/<%= index._id %>" target="blank">Xem đơn hàng</a>
+                            </td>
+                        </tr>
+                        <% }); %>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <footer>
+       <% include ./partials/footer.ejs %>
+    </footer>
+    </div>
+</body>
+
+</html>

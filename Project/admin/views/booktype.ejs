@@ -1,0 +1,92 @@
+<!DOCTYPE <html>
+<html>
+
+<head>
+  <title>
+      <%= type%>
+  </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/booktype.css" rel="stylesheet">
+    <link href="/stylesheets/sidebar.css" rel="stylesheet">
+    <link href="/stylesheets/breadcrumb.css" rel="stylesheet">\
+    <link href="/stylesheets/paging.css" rel="stylesheet">
+    <link href="/stylesheets/searchbar.css" rel="stylesheet">
+    <script src="/javascripts/lumino.glyphs.js"></script>
+    <!--==================================================-->
+    <script src="/javascripts/pagination.js"></script>
+    <script src="/javascripts/goback.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div id="wrapper" class="container-fluid">
+      <div class="row">
+          <% include ./partials/sidebar.ejs %>
+
+      </div>
+            <div id="container">
+                <div class="content col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2">
+                    <div class="row">
+                        <ol class="breadcrumb">
+                            <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+                            <li><a href="#">Danh mục sách</a></li>
+                            <li class="active"><%= type%></li>
+                        </ol>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header"><%= type%></h1>
+                            <div class="col-lg-4"> <a id="btn_add_book" href="/addbook" class="btn btn-default">Thêm</a>
+                            </div>
+                            <div class="col-lg-8">
+                                <form>
+                                    <input type="text" name="search" placeholder="Tìm.." class="searchbar" style="margin-bottom: 20px;
+                                    float: right;">
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="table-responsive panel">
+
+                        <table class="table ">
+                            <tbody>
+                              <% book.forEach(function(index){%>
+                                <tr>
+                                    <td><img src="/images/book1.jpg" class="bookimg"></td>
+                                    <td><%= index.title%> <br> <%= index.publisher %> <br> <%= index.author%></td>
+                                    <td>Lượt xem: <%= index.view%> <br> Số lượng: <%= index.quantity%></td>
+                                    <td>GB: <%= index.oldprice.toLocaleString('en-US', {minimumIntegerDigits: 3}) %> VND <br>
+                                      GHT: <%= index.newprice.toLocaleString('en-US', {minimumIntegerDigits: 3})%> VND</td>
+                                    <td>
+                                        <a href="/updatebook">
+                                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span></button>
+                                        </a>
+
+                                        <button type="button" class="btn btn-default" onclick="deleteRow(this)" style="background-color: #ff0000; color: white;"><span class="glyphicon glyphicon-remove"></span></button>
+
+                                    </td>
+                                </tr>
+                                <% }); %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="Pagination">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+</body>
+
+</html>

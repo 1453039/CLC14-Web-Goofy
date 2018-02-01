@@ -1,0 +1,20 @@
+#deletebtn, #updateproductbtn{
+  border: none;
+  text-align: center;
+  text-decoration: none;
+
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#deletebtn{
+  display: inline-block;
+  background-color: #6c5b7b;
+  color: white;
+}
+
+#updateproductbtn{
+  display: inline-block;
+  background-color: #F98A5F;
+  color: white;
+}

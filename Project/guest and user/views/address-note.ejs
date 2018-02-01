@@ -1,0 +1,118 @@
+<!DOCTYPE <html>
+<html>
+
+<head>
+    <title>G4-Goofy</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="/images/favicon.ico" rel="shortcut icon">
+
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/stylesheets/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/stylesheets/style_so_dia_chi.css" rel="stylesheet" media="screen">
+    <link href="/stylesheets/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js "></script>
+    <script src="/javascripts/bootstrap.min.js "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js "></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+           <% include ./partials/header-other.ejs %>
+        </header>
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="/">Trang chủ</a> <span class="divider"></span></li>
+                <li class="active">Sổ địa chỉ</li>
+            </ul>
+            <div id="subcategory" class="col-sm-3">
+                <h4> TÀI KHOẢN CỦA BẠN </h4>
+                <ul class="class">
+                    <li><a href="/users/user_detail">Quản lý tài khoản</a></li>
+                    <li><a href="/users/change_detail">Thông tin tài khoản</a></li>
+                    <li><a href="/users/address_note" class="active">Sổ địa chỉ</a></li>
+                    <li><a href="/order">Đơn hàng của tôi</a></li>
+                    <li><a href="./sach_yeu_thich.htm">Danh sách yêu thích</a></li>
+                </ul>
+
+                <br>
+
+            </div>
+            <div class="col-sm-9">
+                <div class="header-manage">
+                    <h3>Sổ địa chỉ</h3>
+                </div>
+                <div class="manage-content">
+                    <div id="title">
+                        <h4><strong>THÔNG TIN ĐỊA CHỈ</strong></h4>
+                        <a id="add-add" href="/users/add_address">Thêm địa chỉ</a>
+                    </div>
+                    <hr>
+                    <table>
+                        <tr>
+                            <th>
+                                <p>Địa chỉ giao hàng mặc định</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <% if (!defaultAddress) { %>
+                                <td>
+                                    <p><strong><%= users.name %></strong></p>
+                                    <p><%= users.address %></p>
+                                    <p><%= users.telephone %></p>
+                                </td>
+                            <% } else { %>
+                                <td>
+                                    <p><strong><%= defaultAddress.name %></strong></p>
+                                    <p><%= defaultAddress.street %>, <%= defaultAddress.subdistrict %>, <%= defaultAddress.district %>, <%= defaultAddress.province %> </p>
+                                    <p><%= defaultAddress.telephone %></p>
+                                </td>
+                            <% } %>
+                        </tr>
+                    </table>
+
+                    <table>
+                        <tr>
+                            <th>
+                                <p>Địa chỉ giao hàng khác</p>
+                            </th>
+                        </tr>
+                        <% if (defaultAddress) { %>
+                            <tr>        
+                                <td>
+                                    <p><strong><%= users.name %></strong></p>
+                                    <p><%= users.address %></p>
+                                    <p><%= users.telephone %></p>
+                                    <p><a href="/users/default/0">Chọn làm mặc định</a></p>
+                                </td>
+                            </tr>
+                        <% } %>
+                        <% addresses.forEach(function(address) { %> 
+                            <tr>
+                                <td>
+                                    <p><strong><%= address.name %></strong></p>
+                                    <p><%= address.street %>, <%= address.subdistrict %>, <%= address.district %>, <%= address.province %> </p>
+                                    <p><%= address.telephone %></p>
+                                    <p><a href="/users/default/<%= address._id %>">Chọn làm mặc định</a> | <a href="/users/delete/<%= address._id %>">Xóa địa chỉ</a></p>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <footer>
+            <% include ./partials/footer.ejs %>
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE <html>
+<html>
+
+<head>
+    <title>G4-Goofy</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="/images/favicon.ico" rel="shortcut icon">
+
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/stylesheets/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/stylesheets/style_thank.css" rel="stylesheet" media="screen">
+    <link href="/stylesheets/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js "></script>
+    <script src="/javascripts/bootstrap.min.js "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js "></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <% include ./partials/header-thank.ejs %>   
+        </header>
+        <br><br>
+        <div class="container" id="mycontent">
+            <h3>Cám ơn bạn đã đặt hàng tại nobita.vn! </h3>
+
+            <p>Xin chào <strong><%= user.name %></strong></p>
+            <br>
+            <p> Mã số đơn hàng của bạn là: <strong><%= order._id %></strong></p>
+            <br>
+            <p>Thông tin chi tiết về đơn hàng đã được gởi đến địa chỉ email 14clc.g4.googfy@gmail.com. Bạn vui lòng kiểm tra hộp thư đến, nếu không tìm thấy vui lòng tìm thêm trong hộp thư spam hoặc Junk Folder.</p>
+
+            <br>
+            <p> <strong>Lưu ý:</strong> </p>
+            <br>
+            <p> Nếu là khách hàng mới googfy sẽ tiến hành xác nhận đơn hàng qua điện thoại để xác nhận thông tin bạn đã cung cấp trong đơn hàng. Sau khi đồng ý nobita sẽ tiến hành xử lý đơn hàng. </p>
+            <br>
+            <p>Sau lần mua hàng đầu tiên thành công, các đơn hàng tiếp theo sẽ được xác nhận bằng tin nhắn, hoặc Bạn cũng có thể xác nhận bằng cách bấm vào đường link mà hệ thống của nobita gửi về trong email mà bạn đã đăng kí tài khoản tại nobita.</p>
+
+            <br>
+            <a href="/">Trở về trang chủ</a>
+        </div>
+
+        <footer>
+            <% include ./partials/footer.ejs %>
+        </footer>
+    </div>
+</body>
+
+</html>

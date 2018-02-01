@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/login.css" rel="stylesheet">
+
+    <title><%= title %></title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+                <span><h2><b>Đăng nhập</b></h2></span>
+        </header>
+
+          <section id="container">
+              <form id="login-form" name="login-form" action="/login" method="post">
+                  <div class="fieldcontainer">
+                    <div> <% if (error) %> <%= error%></div>
+                    </div> <input type="hidden" value="<%= csrfToken%>" name="_csrf"/>
+                    <label><b>Tên đăng nhập</b></label>
+                    <input type="text" placeholder="Enter Username" name="username" required>
+
+                    <label><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="password" required>
+
+                    <input type="checkbox" name="remember" value="remember">Ghi nhớ<br>
+                    <button type="submit" name="login-btn" id="login-btn">Đăng nhập</button>
+
+                  </div>
+              </form>
+          </section>
+
+        <footer id="footer">
+            <div id="address">
+                <p> Copyright © 2017 G4-Goofy</p>
+                <p> Địa chỉ: 227, Nguyễn Văn Cừ, Phường 4, Quận 5, TP. Hồ Chí Minh </p>
+            </div>
+        </footer>
+    </div>
+
+    <!--==================================================-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>

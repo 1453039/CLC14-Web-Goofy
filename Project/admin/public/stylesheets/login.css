@@ -1,0 +1,75 @@
+body {
+    background: #96CEB4;
+    color: black;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    background-image: url("../images/loginbg.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+#container {
+    width: 30%;
+    background: #6c5b7b;
+    margin: 20px auto;
+    overflow: auto;
+    padding: 25px;
+}
+
+header {
+    color: white;
+    text-align: center;
+    border-bottom: white dashed 1px;
+}
+
+section {
+    min-height: 300px;
+}
+
+footer {
+    color: #6c5b7b;
+    text-align: center;
+    /*border-top: white dashed 1px;*/
+    margin-top: 11em;
+}
+
+#login-btn:hover {
+    opacity: 0.8;
+}
+
+input[type='text'], input[type='password'] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    color: black;
+}
+
+button[type='submit'] {
+    width: 100%;
+    background: #F78B5D;
+    border: 0;
+    font-weight: bold;
+    color: white;
+    margin-top: 8px;
+    padding: 10px 15px;
+    cursor:pointer;
+}
+
+label, input[type='checkbox']{
+  color: white;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+}

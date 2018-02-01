@@ -1,0 +1,277 @@
+<!DOCTYPE <html>
+<html>
+
+<head>
+    <title>G4-Goofy</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="/images/favicon.ico" rel="shortcut icon">
+
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/stylesheets/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/stylesheets/style_book_type.css" rel="stylesheet" media="screen">
+    <link href="/stylesheets/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js "></script>
+    <script src="/javascripts/bootstrap.min.js "></script>
+    <script src="/javascripts/script.js "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js "></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <% include ./partials/header-other.ejs %>
+        </header>
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="/">Trang chủ</a> <span class="divider"></span></li>
+                <li><a href="/book_type/<%= typeId %>"><%= type %></a> <span class="divider"></span></li>
+                <li class="active">
+                    <%= category_title %>
+                </li>
+            </ul>
+            <div id="subcategory" class="col-sm-3">
+                <h4> DANH MỤC </h4>
+                <ul class="class">
+                    <% var i = 1; %>
+                    <% categories.forEach(function(category) { %>
+                        <li>
+                            <% if (category == category_title) { %>
+                                <a href="/book_type/<%= typeId %>/<%= i %>">
+                                    <b><%= category %></b>
+                                </a>
+                            <% } else {%>
+                            <a href="/book_type/<%= typeId %>/<%= i %>">
+                                <%= category %>
+                            </a>
+                            <% } %>
+                        </li>
+                    <% i++; }) %>
+                </ul>
+
+                <br>
+
+                <input type="submit" name="loc" value="Lọc" id="filter"></input>
+
+                <br>
+
+                <% if (type != "Sách tham khảo" && type != "Sách giáo khoa") { %>
+                    <br>
+
+                    <h4> TÁC GIẢ </h4>
+                    <div class="subchoice">
+                        <div class="checksubchoice">
+                            <label for=""><input type="checkbox" name="subject" value=""> Nguyễn Ngọc Thạch </label>
+                        </div>
+                        <div class="checksubchoice">
+                            <label for=""><input type="checkbox" name="subject" value=""> Chu Hạo Huy </label>
+                        </div>
+                        <div class="checksubchoice">
+                            <label for=""><input type="checkbox" name="subject" value=""> Hamlet Trương </label>
+                        </div>
+                        <div class="checksubchoice">
+                            <label for=""><input type="checkbox" name="subject" value=""> Hamlet Trương </label>
+                        </div>
+                        <div class="checksubchoice">
+                            <label for=""><input type="checkbox" name="subject" value=""> Hamlet Trương </label>
+                        </div>
+                        <div class="checksubchoice">
+                            <label for=""><input type="checkbox" name="subject" value=""> Hamlet Trương </label>
+                        </div>
+                        <div class="checksubchoice">
+                            <label for=""><input type="checkbox" name="subject" value=""> Iris Cao </label>
+                        </div>
+                        <div class="checksubchoice">
+                            <label for=""><input type="checkbox" name="subject" value=""> Tùng Leo </label>
+                        </div>
+                        <div class="checksubchoice">
+                            <label for=""><input type="checkbox" name="subject" value=""> Tony Buổi Sáng </label>
+                        </div>
+                        <div class="checksubchoice">
+                            <label for=""><input type="checkbox" name="subject" value=""> Gia Đoàn </label>
+                        </div>
+                        <div class="checksubchoice">
+                            <label for=""><input type="checkbox" name="subject" value=""> Anh Khang </label>
+                        </div>
+                        <div class="checksubchoice">
+                            <label for=""><input type="checkbox" name="subject" value=""> Gào </label>
+                        </div>
+                        <div class="checksubchoice">
+                            <label for=""><input type="checkbox" name="subject" value=""> Tony Buổi Sáng </label>
+                        </div>
+                        <div class="checksubchoice">
+                            <label for=""><input type="checkbox" name="subject" value=""> Tony Buổi Sáng </label>
+                        </div>
+                        <div class="checksubchoice">
+                            <label for=""><input type="checkbox" name="subject" value=""> Tony Buổi Sáng </label>
+                        </div>
+                        <div class="checksubchoice">
+                            <label for=""><input type="checkbox" name="subject" value=""> Tony Buổi Sáng </label>
+                        </div>
+                        <div class="checksubchoice">
+                            <label for=""><input type="checkbox" name="subject" value=""> Tony Buổi Sáng </label>
+                        </div>
+                        <div class="checksubchoice">
+                            <label for=""><input type="checkbox" name="subject" value=""> Tony Buổi Sáng </label>
+                        </div>
+                        <div class="checksubchoice">
+                            <label for=""><input type="checkbox" name="subject" value=""> Tony Buổi Sáng </label>
+                        </div>
+                    </div>
+                    <% } %>
+
+                        <br>
+
+                        <h4> NHÀ PHÁT HÀNH </h4>
+                        <div class="subchoice">
+                            <div class="checksubchoice">
+                                <label for=""><input type="checkbox" name="subject" value="alphabook"> Alphabook </label>
+                            </div>
+                            <div class="checksubchoice">
+                                <label for=""><input type="checkbox" name="subject" value="alphabook"> Alphabook </label>
+                            </div>
+                            <div class="checksubchoice">
+                                <label for=""><input type="checkbox" name="subject" value="alphabook"> Alphabook </label>
+                            </div>
+                            <div class="checksubchoice">
+                                <label for=""><input type="checkbox" name="subject" value="alphabook"> Alphabook </label>
+                            </div>
+                            <div class="checksubchoice">
+                                <label for=""><input type="checkbox" name="subject" value="alphabook"> Alphabook </label>
+                            </div>
+                            <div class="checksubchoice">
+                                <label for=""><input type="checkbox" name="subject" value="alphabook"> Alphabook </label>
+                            </div>
+                            <div class="checksubchoice">
+                                <label for=""><input type="checkbox" name="subject" value="alphabook"> Alphabook </label>
+                            </div>
+                            <div class="checksubchoice">
+                                <label for=""><input type="checkbox" name="subject" value="alphabook"> Alphabook </label>
+                            </div>
+                            <div class="checksubchoice">
+                                <label for=""><input type="checkbox" name="subject" value="first_news"> First News </label>
+                            </div>
+                            <div class="checksubchoice">
+                                <label for=""><input type="checkbox" name="subject" value="nha_nam"> Nhã Nam </label>
+                            </div>
+                            <div class="checksubchoice">
+                                <label for=""><input type="checkbox" name="subject" value="minh_tam"> Minh Tâm </label>
+                            </div>
+                        </div>
+            </div>
+            <div class="col-sm-9">
+                <h3>
+                    <%= category_title %>
+                </h3>
+                <div class="header-product">
+                    <div id="myTab" class="pull-left">
+                        <a id="block" href="#blockView" data-toggle="tab"><span id="block" class="btn btn-large btn-primary"><i class="fa fa-th-large"></i></span></a>
+                        <a id="list" href="#listView" data-toggle="tab"><span id="list" class="btn btn-large"><i class="fa fa-list"></i></span></a>
+                    </div>
+                    <select id="order" name="item_order">
+                        <option selected="selected" value="0">Mới trước cũ sau</option>
+                        <option value="1">Cũ trước mới sau</option>
+                        <option value="2">Giá thấp đến cao</option>
+                        <option value="3">Giá cao đến thấp</option>
+                        <option value="4">Bán chạy nhất</option>
+                        <option value="5">Xem nhiều</option>
+                        <option value="6">Ngày xuất bản</option>
+                    </select>
+                </div>
+                <div class="tab-pane" id="product">
+                    <div class="tab-content">
+                        <div class="tab-pane" id="listView">
+                            <% book.forEach(function(index){%>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="side-corner-tag">
+                                            <a href="/book_detail/<%= index._id%>"><img src="<%= index.imagepathmedium%>" alt="image"></a>
+                                            <% if (index.discount > 0){%>
+                                                <div class="discount-label yellow"><span>-<%= index.discount%>%</span></div>
+                                                <% } %>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <a href="/book_detail/<%= index._id%>">
+                                            <h3>
+                                                <%= index.title%>
+                                            </h3>
+                                        </a>
+                                        <hr>
+                                        <a href="tac_gia.htm">
+                                            <h5>
+                                                <%= index.author%>
+                                            </h5>
+                                        </a>
+                                        <h4><strong><%= index.newprice.toLocaleString('en-US', {minimumIntegerDigits: 3})%> ₫</strong></h4>
+                                        <% if (index.discount > 0){%>
+                                            <h5><strike><%= index.oldprice.toLocaleString('en-US', {minimumIntegerDigits: 3}) %> ₫</strike></h5>
+                                            <% } %>
+                                                <p>
+                                                    <%= index.summary%>
+                                                </p>
+                                                <a class="btn btn-small pull-right" href="/book_detail/<%= index._id%>">Xem chi tiết</a>
+                                                <br class="clr" />
+                                                <hr>
+                                                <a href="/add-to-cart/" class="add">THÊM VÀO GIỎ</a>
+                                    </div>
+
+                                </div>
+                                <hr class="soft" />
+                                <% }); %>
+                        </div>
+
+                        <div class="tab-pane active" id="blockView">
+                            <ul class="thumbnails">
+                                <% book.forEach(function(index){%>
+                                    <li class="col-sm-3">
+                                        <div class="thumbnail">
+                                            <div class="side-corner-tag">
+                                                <a href="/book_detail/<%= index._id%>"><img src="<%= index.imagepathmedium%>" alt="image"></a>
+                                                <% if (index.discount > 0){%>
+                                                    <div class="discount-label yellow"><span>-<%= index.discount%>%</span></div>
+                                                    <% } %>
+                                            </div>
+                                            <div class="caption">
+                                                <div class="slide-copy">
+                                                    <br/>
+                                                    <h5>
+                                                        <a href="/book_detail/<%= index._id%>">
+                                                            <%= index.title%>
+                                                        </a>
+                                                    </h5>
+                                                    <h6>
+                                                        <a href="tac_gia.htm">
+                                                            <%= index.author%>
+                                                        </a>
+                                                    </h6>
+                                                    <h5><strong><%= index.newprice.toLocaleString('en-US', {minimumIntegerDigits: 3}); %> ₫</strong></h5>
+                                                    <% if (index.discount > 0){%>
+                                                        <h6><strike><%= index.oldprice.toLocaleString('en-US', {minimumIntegerDigits: 3}); %> ₫</strike></h6>
+                                                        <% } %>
+                                                            <a href="/add-to-cart/" class="add">THÊM VÀO GIỎ</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <% }); %>
+                            </ul>
+                            <hr class="soft" />
+                        </div>
+                    </div>
+                    <br class="clr">
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <footer>
+            <% include ./partials/footer.ejs %>
+        </footer>
+    </div>
+</body>
+</html>

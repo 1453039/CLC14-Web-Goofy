@@ -1,0 +1,158 @@
+<!DOCTYPE <html>
+<html>
+
+<head>
+    <title>G4-Goofy</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     <link href="/images/favicon.ico" rel="shortcut icon">
+
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/stylesheets/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/stylesheets/style_choose_address.css" rel="stylesheet" media="screen">
+    <link href="/stylesheets/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js "></script>
+    <script src="/javascripts/bootstrap.min.js "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js "></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <% include ./partials/header-other.ejs %>
+        </header>
+        <div class="container">
+            <div class="col-sm-8">
+                <div class="header-address">
+                    <h3>Địa chỉ giao hàng</h3>
+                </div>
+                <form action="/cart/checkout/payment" method="post">
+                <div class="address-content">
+                    <table>
+                        <tr>
+                            <td colspan="2">
+                                <strong>Sử dụng địa chỉ có sẵn</strong>
+                            </td>
+                        </tr>
+
+                        <% if (defaultAddress) { %>
+                        <tr>
+                            <td>
+                                <input type="radio" name="address" checked="checked" value="<%= defaultAddress._id %>"/>
+                            </td>
+                            <td>
+                                <p><strong><%= defaultAddress.name %></strong></p>
+                                <p><%= defaultAddress.street %>, <%= defaultAddress.subdistrict %>, <%= defaultAddress.district %>, <%= defaultAddress.province %> </p>
+                                <p><%= defaultAddress.telephone %></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="radio" name="address" value="0"/>
+                            </td>
+                            <td>
+                                <p><strong><%= users.name %></strong></p>
+                                <p><%= users.address %></p>
+                                <p><%= users.telephone %></p>
+                            </td>
+                        </tr>
+                        <% } else { %>
+                        <tr>
+                            <td>
+                                <input type="radio" name="address" checked="checked" value="0"/>
+                            </td>
+                            <td>
+                                <p><strong><%= users.name %></strong></p>
+                                <p><%= users.address %></p>
+                                <p><%= users.telephone %></p>
+                            </td>
+                        </tr>
+                        <% } %>
+                        
+                        <% address.forEach(function(add){ %>
+                            <tr>
+                            <td>
+                                <input type="radio" name="address" value="<%= add._id %>"/>
+                            </td>
+                            <td>
+                                <p><strong><%= add.name %></strong></p>
+                                <p><%= add.street %>, <%= add.subdistrict %>, <%= add.district %>, <%= add.province %> </p>
+                                <p><%= add.telephone %></p>
+                            </td>
+                        </tr>
+                        <% }); %>  
+                    </table>
+                </div>
+                <div id="continue">
+                    <button type="submit">Tiếp tục</button>
+                </div>
+                </form>
+                <br>
+                <hr>             
+                <h4>Bạn cần hỗ trợ? Gọi HotLine: <strong>090. 451. 465</strong></h4>
+            </div>
+          
+            <div class="col-sm-4" id="order">
+                <table>
+                    <tr>
+                        <td class="left">
+                            <strong>Đơn hàng</strong> <small>(<%= session.cart.totalQty %> sản phẩm)</small>
+                        </td>
+
+                        <td class="right">
+                            <a href="/cart">Sửa</a>
+                        </td>
+                    </tr>
+                    <% items.forEach(function(element){ %>
+                    <tr>
+                        <td claa="left">
+                            <%= element.qty %> x <%= element.item.title %>
+                        </td>
+
+                        <td class="right">
+                            <%= element.item.newprice * element.qty %>
+                        </td>
+                    </tr>   
+                     <% }) %>                 
+                    <tr>
+                        <td claa="left">
+                            Tạm tính
+                        </td>
+
+                        <td class="right">
+                            <%= session.cart.totalPrice %>
+                        </td>
+                    </tr>                   
+                    <tr>
+                        <td claa="left">
+                            Phí vận chuyển
+                        </td>
+                        <td class="right">
+                            Chưa có
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left">
+                            <h4><strong>TỔNG TIỀN</strong></h4>
+                        </td>
+
+                        <td class="right">
+                            <h4><strong><%= session.cart.totalPrice %></strong></h4>
+                        </td>
+                    </tr>
+
+                </table>
+
+            </div>
+        </div>
+        <footer>
+           <% include ./partials/footer.ejs %>
+        </footer>
+    </div>
+</body>
+
+</html>
